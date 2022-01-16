@@ -8,7 +8,7 @@ SHELL ["/bin/bash", "-c"]
 
 RUN apt update && apt upgrade -y
 # RUN apt install -y git build-essential curl
-RUN apt install -y curl
+RUN apt install -y git curl
 RUN adduser "${USER}" --disabled-password --gecos ""
 
 USER ${USER}
