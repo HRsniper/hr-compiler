@@ -1,1 +1,3 @@
 # Compiler
+
+![](estrutura-geral.jpg)

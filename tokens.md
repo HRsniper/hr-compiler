@@ -18,7 +18,7 @@
 
 - `=`
 
-# Palavras reservadas
+<!-- # Palavras reservadas -->
 
 ## Glossário
 
@@ -27,3 +27,6 @@
 - `0..9` -> intervalo de **0** até **9**
 - `*` -> 0 ou mais repetições
 - `+` -> 1 ou mais repetições
+- `&` -> vazio
+
+![](grafo.jpg)

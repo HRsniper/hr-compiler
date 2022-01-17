@@ -20,7 +20,6 @@ class Scanner {
         }
         catch (error) {
             console.error("ERROR: ", error);
-            // throw new Error().stack;
         }
     }
     nextToken() {
@@ -40,15 +39,18 @@ class Scanner {
                         term += currentChar;
                     }
                     else if (this.isDigit(currentChar)) {
-                        this.state = 3;
-                        term += currentChar;
-                    }
-                    else if (this.isOperator(currentChar)) {
-                        this.state = 5;
+                        this.state = 2;
                         term += currentChar;
                     }
                     else if (this.isSpace(currentChar)) {
                         this.state = 0;
+                    }
+                    else if (this.isOperator(currentChar)) {
+                        term += currentChar;
+                        token = new token_1.Token();
+                        token.setType(token_1.Token.TK_OPERATOR);
+                        token.setText(term);
+                        return token;
                     }
                     else {
                         throw new exception_1.LexicalException("Unrecognized symbol: " + currentChar);
@@ -59,50 +61,40 @@ class Scanner {
                         this.state = 1;
                         term += currentChar;
                     }
-                    else if (this.isSpace(currentChar)) {
-                        this.state = 2;
-                    }
-                    else if (this.isOperator(currentChar)) {
-                        this.state = 0;
-                        term += currentChar;
+                    else if (this.isSpace(currentChar) ||
+                        this.isOperator(currentChar) ||
+                        this.isEndOfFile()) {
+                        if (!this.isEndOfFile(currentChar)) {
+                            this.back();
+                        }
+                        // term += currentChar;
+                        token = new token_1.Token();
+                        token.setType(token_1.Token.TK_IDENTIFIER);
+                        token.setText(term);
+                        return token;
                     }
                     else {
                         throw new exception_1.LexicalException("Malformed Identifier: " + currentChar);
                     }
                     break;
                 case 2:
-                    token = new token_1.Token();
-                    token.setType(token_1.Token.TK_IDENTIFIER);
-                    token.setText(term);
-                    this.back();
-                    return token;
-                case 3:
-                    if (this.isDigit(currentChar)) {
-                        this.state = 3;
+                    if (this.isDigit(currentChar) || currentChar == ".") {
+                        this.state = 2;
                         term += currentChar;
                     }
-                    else if (!this.isChar(currentChar)) {
-                        this.state = 4;
+                    else if (!this.isChar(currentChar) ||
+                        this.isEndOfFile(currentChar)) {
+                        if (!this.isEndOfFile(currentChar)) {
+                            this.back();
+                        }
+                        token = new token_1.Token();
+                        token.setType(token_1.Token.TK_NUMBER);
+                        token.setText(term);
+                        return token;
                     }
                     else {
                         throw new exception_1.LexicalException(`Unrecognized number: ${(term += currentChar)}`);
                     }
-                    break;
-                case 4:
-                    token = new token_1.Token();
-                    token.setType(token_1.Token.TK_NUMBER);
-                    token.setText(term);
-                    this.back();
-                    return token;
-                case 5:
-                    term += currentChar;
-                    token = new token_1.Token();
-                    token.setType(token_1.Token.TK_OPERATOR);
-                    token.setText(term);
-                    return token;
-                case 6:
-                    break;
-                case 7:
                     break;
                 default:
                     break;
@@ -117,22 +109,33 @@ class Scanner {
     }
     isOperator(c) {
         return (c == "=" ||
-            c == "==" ||
-            c == ">=" ||
-            c == "<=" ||
             c == ">" ||
             c == "<" ||
-            c == "!=" ||
-            c == "!");
+            c == "!" ||
+            c == "+" ||
+            c == "-" ||
+            c == "*" ||
+            c == "/"
+        // c == "!=" ||
+        // c == "==" ||
+        // c == ">=" ||
+        // c == "<=" ||
+        );
     }
     isSpace(c) {
         return c == " " || c == "\t" || c == "\n" || c == "\r";
     }
     nextChar() {
+        if (this.isEndOfFile()) {
+            return "\0";
+        }
         return this.content[this.position++];
     }
-    isEndOfFile() {
-        return this.position == this.content.length;
+    isEndOfFile(c) {
+        if (c == undefined) {
+            return this.position >= this.content.length;
+        }
+        return c == "\0";
     }
     back() {
         this.position--;

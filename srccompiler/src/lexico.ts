@@ -22,7 +22,6 @@ export class Scanner {
       console.log("CONTENT: ", contenttxt);
     } catch (error) {
       console.error("ERROR: ", error);
-      // throw new Error().stack;
     }
   }
 
@@ -45,13 +44,16 @@ export class Scanner {
             this.state = 1;
             term += currentChar;
           } else if (this.isDigit(currentChar)) {
-            this.state = 3;
-            term += currentChar;
-          } else if (this.isOperator(currentChar)) {
-            this.state = 5;
+            this.state = 2;
             term += currentChar;
           } else if (this.isSpace(currentChar)) {
             this.state = 0;
+          } else if (this.isOperator(currentChar)) {
+            term += currentChar;
+            token = new Token();
+            token.setType(Token.TK_OPERATOR);
+            token.setText(term);
+            return token;
           } else {
             throw new LexicalException("Unrecognized symbol: " + currentChar);
           }
@@ -61,54 +63,44 @@ export class Scanner {
           if (this.isChar(currentChar) || this.isDigit(currentChar)) {
             this.state = 1;
             term += currentChar;
-          } else if (this.isSpace(currentChar)) {
-            this.state = 2;
-          } else if (this.isOperator(currentChar)) {
-            this.state = 0;
-            term += currentChar;
+          } else if (
+            this.isSpace(currentChar) ||
+            this.isOperator(currentChar) ||
+            this.isEndOfFile()
+          ) {
+            if (!this.isEndOfFile(currentChar)) {
+              this.back();
+            }
+            // term += currentChar;
+            token = new Token();
+            token.setType(Token.TK_IDENTIFIER);
+            token.setText(term);
+            return token;
           } else {
             throw new LexicalException("Malformed Identifier: " + currentChar);
           }
           break;
 
         case 2:
-          token = new Token();
-          token.setType(Token.TK_IDENTIFIER);
-          token.setText(term);
-          this.back();
-          return token;
-
-        case 3:
-          if (this.isDigit(currentChar)) {
-            this.state = 3;
+          if (this.isDigit(currentChar) || currentChar == ".") {
+            this.state = 2;
             term += currentChar;
-          } else if (!this.isChar(currentChar)) {
-            this.state = 4;
+          } else if (
+            !this.isChar(currentChar) ||
+            this.isEndOfFile(currentChar)
+          ) {
+            if (!this.isEndOfFile(currentChar)) {
+              this.back();
+            }
+            token = new Token();
+            token.setType(Token.TK_NUMBER);
+            token.setText(term);
+            return token;
           } else {
             throw new LexicalException(
               `Unrecognized number: ${(term += currentChar)}`
             );
           }
-          break;
-
-        case 4:
-          token = new Token();
-          token.setType(Token.TK_NUMBER);
-          token.setText(term);
-          this.back();
-          return token;
-
-        case 5:
-          term += currentChar;
-          token = new Token();
-          token.setType(Token.TK_OPERATOR);
-          token.setText(term);
-          return token;
-
-        case 6:
-          break;
-
-        case 7:
           break;
 
         default:
@@ -128,13 +120,17 @@ export class Scanner {
   private isOperator(c: string): boolean {
     return (
       c == "=" ||
-      c == "==" ||
-      c == ">=" ||
-      c == "<=" ||
       c == ">" ||
       c == "<" ||
-      c == "!=" ||
-      c == "!"
+      c == "!" ||
+      c == "+" ||
+      c == "-" ||
+      c == "*" ||
+      c == "/"
+      // c == "!=" ||
+      // c == "==" ||
+      // c == ">=" ||
+      // c == "<=" ||
     );
   }
 
@@ -143,11 +139,17 @@ export class Scanner {
   }
 
   private nextChar(): string {
+    if (this.isEndOfFile()) {
+      return "\0";
+    }
     return this.content[this.position++];
   }
 
-  private isEndOfFile(): boolean {
-    return this.position == this.content.length;
+  private isEndOfFile(c?: string): boolean {
+    if (c == undefined) {
+      return this.position >= this.content.length;
+    }
+    return c == "\0";
   }
 
   private back(): void {
