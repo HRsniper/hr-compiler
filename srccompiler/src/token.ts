@@ -1,12 +1,21 @@
 export class Token {
-  private type: number;
-  private text: string | undefined;
   public static TK_IDENTIFIER: number = 0;
   public static TK_NUMBER: number = 1;
   public static TK_OPERATOR: number = 2;
   public static TK_PUNCTUATION: number = 3;
   public static TK_ASSIGN: number = 4;
-  public static TK_STRING: number = 5;
+  public static TK_TEXT: string[] = [
+    "IDENTIFIER",
+    "NUMBER",
+    "OPERATOR",
+    "PUNCTUATION",
+    "ASSIGNMENT"
+  ];
+
+  private type: number;
+  private text: string | undefined;
+  private line: number;
+  private column: number;
 
   // constructor(type: number, text: string) {
   //   this.type = type;
@@ -29,6 +38,22 @@ export class Token {
 
   public setText(text: string): void {
     this.text = text;
+  }
+
+  public getLine(): number {
+    return this.line;
+  }
+
+  public setLine(line: number): void {
+    this.line = line;
+  }
+
+  public getColumn(): number {
+    return this.column;
+  }
+
+  public setColumn(column: number): void {
+    this.column = column;
   }
 
   public toString(): string {

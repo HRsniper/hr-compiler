@@ -1,6 +1,6 @@
-import { LexicalException } from "./exception";
-import { Scanner } from "./lexico";
-import { Token } from "./token";
+import { LexicalException, SyntaxException } from "./exception";
+import { Scanner } from "./scanner";
+import { Parser } from "./parser";
 
 class Main {
   constructor() {}
@@ -8,19 +8,16 @@ class Main {
   public main(): void {
     try {
       let scanner = new Scanner("main.hr");
-      let token = null;
-
-      do {
-        token = scanner.nextToken();
-        if (token != null) {
-          console.log(token);
-        }
-      } while (token != null);
+      let parser = new Parser(scanner);
+      parser.E();
+      console.log("Compilation Successful");
     } catch (error) {
       console.error("ERROR: ", error);
-
       if (error instanceof LexicalException) {
         console.error("LEXICAL ERROR: ", error.message);
+      }
+      if (error instanceof SyntaxException) {
+        console.error("SYNTAX ERROR: ", error.message);
       }
     }
   }

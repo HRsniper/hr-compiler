@@ -19,7 +19,7 @@ export class Scanner {
       this.content = [...contenttxt];
       this.position = 0;
 
-      console.log("CONTENT: ", contenttxt);
+      // console.log("CONTENT: ", contenttxt);
     } catch (error) {
       console.error("ERROR: ", error);
     }
