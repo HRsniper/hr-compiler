@@ -7,9 +7,14 @@ export class Scanner {
   private content: string[];
   private state: number;
   private position: number;
+  private line: number;
+  private column: number;
 
   constructor(filename: string) {
     try {
+      this.line = 1;
+      this.column = 0;
+
       const contenttxt = fs.readFileSync(
         path.join(`${path.resolve()}/src/${filename}`),
         {
@@ -37,6 +42,7 @@ export class Scanner {
     this.state = 0;
     while (true) {
       currentChar = this.nextChar();
+      this.column++;
 
       switch (this.state) {
         case 0:
@@ -53,6 +59,8 @@ export class Scanner {
             token = new Token();
             token.setType(Token.TK_OPERATOR);
             token.setText(term);
+            token.setLine(this.line);
+            token.setColumn(this.column - term.length);
             return token;
           } else {
             throw new LexicalException("Unrecognized symbol: " + currentChar);
@@ -75,6 +83,8 @@ export class Scanner {
             token = new Token();
             token.setType(Token.TK_IDENTIFIER);
             token.setText(term);
+            token.setLine(this.line);
+            token.setColumn(this.column - term.length);
             return token;
           } else {
             throw new LexicalException("Malformed Identifier: " + currentChar);
@@ -95,6 +105,8 @@ export class Scanner {
             token = new Token();
             token.setType(Token.TK_NUMBER);
             token.setText(term);
+            token.setLine(this.line);
+            token.setColumn(this.column - term.length);
             return token;
           } else {
             throw new LexicalException(
@@ -135,6 +147,11 @@ export class Scanner {
   }
 
   private isSpace(c: string): boolean {
+    if (c == "\n" || c == "\r") {
+      this.line++;
+      this.column = 0;
+    }
+
     return c == " " || c == "\t" || c == "\n" || c == "\r";
   }
 
@@ -154,5 +171,6 @@ export class Scanner {
 
   private back(): void {
     this.position--;
+    this.column--;
   }
 }

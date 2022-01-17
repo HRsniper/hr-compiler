@@ -11,6 +11,8 @@ const token_1 = require("./token");
 class Scanner {
     constructor(filename) {
         try {
+            this.line = 1;
+            this.column = 0;
             const contenttxt = fs_1.default.readFileSync(path_1.default.join(`${path_1.default.resolve()}/src/${filename}`), {
                 encoding: "utf-8"
             });
@@ -32,6 +34,7 @@ class Scanner {
         this.state = 0;
         while (true) {
             currentChar = this.nextChar();
+            this.column++;
             switch (this.state) {
                 case 0:
                     if (this.isChar(currentChar)) {
@@ -50,6 +53,8 @@ class Scanner {
                         token = new token_1.Token();
                         token.setType(token_1.Token.TK_OPERATOR);
                         token.setText(term);
+                        token.setLine(this.line);
+                        token.setColumn(this.column - term.length);
                         return token;
                     }
                     else {
@@ -71,6 +76,8 @@ class Scanner {
                         token = new token_1.Token();
                         token.setType(token_1.Token.TK_IDENTIFIER);
                         token.setText(term);
+                        token.setLine(this.line);
+                        token.setColumn(this.column - term.length);
                         return token;
                     }
                     else {
@@ -90,6 +97,8 @@ class Scanner {
                         token = new token_1.Token();
                         token.setType(token_1.Token.TK_NUMBER);
                         token.setText(term);
+                        token.setLine(this.line);
+                        token.setColumn(this.column - term.length);
                         return token;
                     }
                     else {
@@ -123,6 +132,10 @@ class Scanner {
         );
     }
     isSpace(c) {
+        if (c == "\n" || c == "\r") {
+            this.line++;
+            this.column = 0;
+        }
         return c == " " || c == "\t" || c == "\n" || c == "\r";
     }
     nextChar() {
@@ -139,6 +152,7 @@ class Scanner {
     }
     back() {
         this.position--;
+        this.column--;
     }
 }
 exports.Scanner = Scanner;
