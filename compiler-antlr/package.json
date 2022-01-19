@@ -5,9 +5,10 @@
   "main": "src/main.js",
   "type": "module",
   "scripts": {
+    "prebuild": "cp -a src/*.hr -t dist && cp -a src/antlr/src/*.interp -t dist/antlr/src && cp -a src/antlr/src/*.tokens -t dist/antlr/src",
     "build": "npx tsc",
     "start": "node src/main.js",
-    "antlr": "antlr4 -Dlanguage=JavaScript -o src/antlr src/Hrlang.g4"
+    "antlr": "java -Xmx500M -cp $ANTLR_JAR_PATH org.antlr.v4.Tool -Dlanguage=JavaScript -o src/antlr src/Hrlang.g4"
   },
   "keywords": [],
   "author": "",
