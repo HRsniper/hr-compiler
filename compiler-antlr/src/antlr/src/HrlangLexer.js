@@ -120,6 +120,11 @@ export default class HrlangLexer extends antlr4.Lexer {
         this._varValue = new String();
         this.symbolTable = new SymbolTable();
         this.symbol = new Symbol();
+        this.verificaID = function(id){
+            if(!this.symbolTable.exists(id)){
+              throw new SemanticException("Symbol " + id + " not declared");
+            }
+          }
 
     }
 

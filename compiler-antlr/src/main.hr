@@ -9,6 +9,6 @@ programa
   a = 1;
   b = 2;
 
-     escreva (a);
+     escreva (x);
      escreva (b);
 fimprog;

@@ -13,6 +13,11 @@ this._varName = new String();
 this._varValue = new String();
 this.symbolTable = new SymbolTable();
 this.symbol = new Symbol();
+this.verificaID = function(id){
+    if(!this.symbolTable.exists(id)){
+      throw new SemanticException("Symbol " + id + " not declared");
+    }
+  }
 }
 
 // parser
@@ -59,23 +64,18 @@ cmd : cmdleitura
     ;
 
 cmdleitura : 'leia' AP
-                    ID {
-                         this._varName = this._input.LT(-1).text;
-                         if(!this.symbolTable.exists(this._varName)){
-                           throw new SemanticException("Symbol " + this._varName + " not declared");
-                         }
-                       }
+                    ID { this.verificaID(this._input.LT(-1).text); }
                     FP
                     SC
            ;
 
 cmdescrita : 'escreva' AP
-                      ID
+                      ID { this.verificaID(this._input.LT(-1).text); }
                       FP
                       SC
            ;
 
-cmdattrib : ID
+cmdattrib : ID { this.verificaID(this._input.LT(-1).text); }
             ATTR
             expr
             SC
@@ -84,7 +84,7 @@ cmdattrib : ID
 expr : termo (OP termo)*
      ;
 
-termo : ID | NUMBER
+termo : ID { this.verificaID(this._input.LT(-1).text); } | NUMBER
       ;
 
 // lexer
