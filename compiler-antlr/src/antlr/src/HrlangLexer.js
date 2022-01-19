@@ -6,7 +6,7 @@ import antlr4 from 'antlr4';
 import { Symbol } from "../../datastructs/symbol.js";
 import { Variable } from "../../datastructs/variable.js";
 import { SymbolTable } from "../../datastructs/symbolTable.js";
-import { SemanticException } from "../../datastructs/exception.js";
+import { SemanticException } from "../../exception/exception.js";
 
 
 
@@ -115,7 +115,7 @@ export default class HrlangLexer extends antlr4.Lexer {
         super(input)
         this._interp = new antlr4.atn.LexerATNSimulator(this, atn, decisionsToDFA, new antlr4.PredictionContextCache());
 
-          let a;
+        this._tipo = "";
 
     }
 

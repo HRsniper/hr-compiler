@@ -4,11 +4,11 @@ grammar Hrlang;
 import { Symbol } from "../../datastructs/symbol.js";
 import { Variable } from "../../datastructs/variable.js";
 import { SymbolTable } from "../../datastructs/symbolTable.js";
-import { SemanticException } from "../../datastructs/exception.js";
+import { SemanticException } from "../../exception/exception.js";
 }
 
 @members{
-  let a;
+this._tipo = "";
 }
 
 // parser

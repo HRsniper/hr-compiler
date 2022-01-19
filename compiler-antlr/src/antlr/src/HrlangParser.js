@@ -6,7 +6,7 @@ import HrlangListener from './HrlangListener.js';
 import { Symbol } from "../../datastructs/symbol.js";
 import { Variable } from "../../datastructs/variable.js";
 import { SymbolTable } from "../../datastructs/symbolTable.js";
-import { SemanticException } from "../../datastructs/exception.js";
+import { SemanticException } from "../../exception/exception.js";
 
 
 const serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786",
@@ -89,7 +89,7 @@ export default class HrlangParser extends antlr4.Parser {
         this.literalNames = HrlangParser.literalNames;
         this.symbolicNames = HrlangParser.symbolicNames;
 
-          let a;
+        this._tipo = "";
 
     }
 

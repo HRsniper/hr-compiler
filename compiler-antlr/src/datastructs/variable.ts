@@ -1,4 +1,4 @@
-import { Symbol } from "./symbol";
+import { Symbol } from "./symbol.js";
 
 export class Variable extends Symbol {
   public static NUMBER: number = 0;
