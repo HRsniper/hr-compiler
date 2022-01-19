@@ -4,39 +4,42 @@ import antlr4 from 'antlr4';
 import HrlangListener from './HrlangListener.js';
 
 const serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786",
-    "\u5964\u0003\u0012<\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004",
+    "\u5964\u0003\u0012C\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004",
     "\t\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007",
     "\u0004\b\t\b\u0004\t\t\t\u0003\u0002\u0003\u0002\u0003\u0002\u0003\u0002",
     "\u0003\u0003\u0006\u0003\u0018\n\u0003\r\u0003\u000e\u0003\u0019\u0003",
-    "\u0004\u0003\u0004\u0003\u0004\u0005\u0004\u001f\n\u0004\u0003\u0005",
-    "\u0003\u0005\u0003\u0005\u0003\u0005\u0003\u0005\u0003\u0005\u0003\u0006",
-    "\u0003\u0006\u0003\u0006\u0003\u0006\u0003\u0006\u0003\u0006\u0003\u0007",
-    "\u0003\u0007\u0003\u0007\u0003\u0007\u0003\u0007\u0003\b\u0003\b\u0003",
-    "\b\u0007\b5\n\b\f\b\u000e\b8\u000b\b\u0003\t\u0003\t\u0003\t\u0002\u0002",
-    "\n\u0002\u0004\u0006\b\n\f\u000e\u0010\u0002\u0003\u0003\u0002\u0010",
-    "\u0011\u00027\u0002\u0012\u0003\u0002\u0002\u0002\u0004\u0017\u0003",
-    "\u0002\u0002\u0002\u0006\u001e\u0003\u0002\u0002\u0002\b \u0003\u0002",
-    "\u0002\u0002\n&\u0003\u0002\u0002\u0002\f,\u0003\u0002\u0002\u0002\u000e",
-    "1\u0003\u0002\u0002\u0002\u00109\u0003\u0002\u0002\u0002\u0012\u0013",
-    "\u0007\u0003\u0002\u0002\u0013\u0014\u0005\u0004\u0003\u0002\u0014\u0015",
-    "\u0007\u0004\u0002\u0002\u0015\u0003\u0003\u0002\u0002\u0002\u0016\u0018",
-    "\u0005\u0006\u0004\u0002\u0017\u0016\u0003\u0002\u0002\u0002\u0018\u0019",
-    "\u0003\u0002\u0002\u0002\u0019\u0017\u0003\u0002\u0002\u0002\u0019\u001a",
-    "\u0003\u0002\u0002\u0002\u001a\u0005\u0003\u0002\u0002\u0002\u001b\u001f",
-    "\u0005\b\u0005\u0002\u001c\u001f\u0005\n\u0006\u0002\u001d\u001f\u0005",
-    "\f\u0007\u0002\u001e\u001b\u0003\u0002\u0002\u0002\u001e\u001c\u0003",
-    "\u0002\u0002\u0002\u001e\u001d\u0003\u0002\u0002\u0002\u001f\u0007\u0003",
-    "\u0002\u0002\u0002 !\u0007\u0005\u0002\u0002!\"\u0007\u0007\u0002\u0002",
-    "\"#\u0007\u0010\u0002\u0002#$\u0007\b\u0002\u0002$%\u0007\t\u0002\u0002",
-    "%\t\u0003\u0002\u0002\u0002&\'\u0007\u0006\u0002\u0002\'(\u0007\u0007",
-    "\u0002\u0002()\u0007\u0010\u0002\u0002)*\u0007\b\u0002\u0002*+\u0007",
-    "\t\u0002\u0002+\u000b\u0003\u0002\u0002\u0002,-\u0007\u0010\u0002\u0002",
-    "-.\u0007\u000b\u0002\u0002./\u0005\u000e\b\u0002/0\u0007\t\u0002\u0002",
-    "0\r\u0003\u0002\u0002\u000216\u0005\u0010\t\u000223\u0007\n\u0002\u0002",
-    "35\u0005\u0010\t\u000242\u0003\u0002\u0002\u000258\u0003\u0002\u0002",
-    "\u000264\u0003\u0002\u0002\u000267\u0003\u0002\u0002\u00027\u000f\u0003",
-    "\u0002\u0002\u000286\u0003\u0002\u0002\u00029:\t\u0002\u0002\u0002:",
-    "\u0011\u0003\u0002\u0002\u0002\u0005\u0019\u001e6"].join("");
+    "\u0004\u0003\u0004\u0003\u0004\u0003\u0004\u0003\u0004\u0003\u0004\u0003",
+    "\u0004\u0003\u0004\u0003\u0004\u0005\u0004%\n\u0004\u0003\u0005\u0003",
+    "\u0005\u0003\u0005\u0003\u0005\u0003\u0005\u0003\u0005\u0003\u0005\u0003",
+    "\u0006\u0003\u0006\u0003\u0006\u0003\u0006\u0003\u0006\u0003\u0006\u0003",
+    "\u0007\u0003\u0007\u0003\u0007\u0003\u0007\u0003\u0007\u0003\b\u0003",
+    "\b\u0003\b\u0007\b<\n\b\f\b\u000e\b?\u000b\b\u0003\t\u0003\t\u0003\t",
+    "\u0002\u0002\n\u0002\u0004\u0006\b\n\f\u000e\u0010\u0002\u0003\u0003",
+    "\u0002\u0010\u0011\u0002>\u0002\u0012\u0003\u0002\u0002\u0002\u0004",
+    "\u0017\u0003\u0002\u0002\u0002\u0006$\u0003\u0002\u0002\u0002\b&\u0003",
+    "\u0002\u0002\u0002\n-\u0003\u0002\u0002\u0002\f3\u0003\u0002\u0002\u0002",
+    "\u000e8\u0003\u0002\u0002\u0002\u0010@\u0003\u0002\u0002\u0002\u0012",
+    "\u0013\u0007\u0003\u0002\u0002\u0013\u0014\u0005\u0004\u0003\u0002\u0014",
+    "\u0015\u0007\u0004\u0002\u0002\u0015\u0003\u0003\u0002\u0002\u0002\u0016",
+    "\u0018\u0005\u0006\u0004\u0002\u0017\u0016\u0003\u0002\u0002\u0002\u0018",
+    "\u0019\u0003\u0002\u0002\u0002\u0019\u0017\u0003\u0002\u0002\u0002\u0019",
+    "\u001a\u0003\u0002\u0002\u0002\u001a\u0005\u0003\u0002\u0002\u0002\u001b",
+    "\u001c\u0005\b\u0005\u0002\u001c\u001d\b\u0004\u0001\u0002\u001d%\u0003",
+    "\u0002\u0002\u0002\u001e\u001f\u0005\n\u0006\u0002\u001f \b\u0004\u0001",
+    "\u0002 %\u0003\u0002\u0002\u0002!\"\u0005\f\u0007\u0002\"#\b\u0004\u0001",
+    "\u0002#%\u0003\u0002\u0002\u0002$\u001b\u0003\u0002\u0002\u0002$\u001e",
+    "\u0003\u0002\u0002\u0002$!\u0003\u0002\u0002\u0002%\u0007\u0003\u0002",
+    "\u0002\u0002&\'\u0007\u0005\u0002\u0002\'(\u0007\u0007\u0002\u0002(",
+    ")\u0007\u0010\u0002\u0002)*\b\u0005\u0001\u0002*+\u0007\b\u0002\u0002",
+    "+,\u0007\t\u0002\u0002,\t\u0003\u0002\u0002\u0002-.\u0007\u0006\u0002",
+    "\u0002./\u0007\u0007\u0002\u0002/0\u0007\u0010\u0002\u000201\u0007\b",
+    "\u0002\u000212\u0007\t\u0002\u00022\u000b\u0003\u0002\u0002\u000234",
+    "\u0007\u0010\u0002\u000245\u0007\u000b\u0002\u000256\u0005\u000e\b\u0002",
+    "67\u0007\t\u0002\u00027\r\u0003\u0002\u0002\u00028=\u0005\u0010\t\u0002",
+    "9:\u0007\n\u0002\u0002:<\u0005\u0010\t\u0002;9\u0003\u0002\u0002\u0002",
+    "<?\u0003\u0002\u0002\u0002=;\u0003\u0002\u0002\u0002=>\u0003\u0002\u0002",
+    "\u0002>\u000f\u0003\u0002\u0002\u0002?=\u0003\u0002\u0002\u0002@A\t",
+    "\u0002\u0002\u0002A\u0011\u0003\u0002\u0002\u0002\u0005\u0019$="].join("");
 
 
 const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -48,13 +51,13 @@ const sharedContextCache = new antlr4.PredictionContextCache();
 export default class HrlangParser extends antlr4.Parser {
 
     static grammarFileName = "Hrlang.g4";
-    static literalNames = [ null, "'programa'", "'fimprog;'", "'leia'", 
-                            "'escreva'", "'('", "')'", "';'", null, "'='", 
+    static literalNames = [ null, "'programa'", "'fimprog;'", "'leia'",
+                            "'escreva'", "'('", "')'", "';'", null, "'='",
                             "','", "'{'", "'}'" ];
-    static symbolicNames = [ null, null, null, null, null, "AP", "FP", "SC", 
-                             "OP", "ATTR", "VIR", "ACH", "FCH", "OPREL", 
+    static symbolicNames = [ null, null, null, null, null, "AP", "FP", "SC",
+                             "OP", "ATTR", "VIR", "ACH", "FCH", "OPREL",
                              "ID", "NUMBER", "WS" ];
-    static ruleNames = [ "prog", "bloco", "cmd", "cmdleitura", "cmdescrita", 
+    static ruleNames = [ "prog", "bloco", "cmd", "cmdleitura", "cmdescrita",
                          "cmdattrib", "expr", "termo" ];
 
     constructor(input) {
@@ -104,13 +107,13 @@ export default class HrlangParser extends antlr4.Parser {
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 21; 
+	        this.state = 21;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        do {
 	            this.state = 20;
 	            this.cmd();
-	            this.state = 23; 
+	            this.state = 23;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        } while((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << HrlangParser.T__2) | (1 << HrlangParser.T__3) | (1 << HrlangParser.ID))) !== 0));
@@ -134,23 +137,26 @@ export default class HrlangParser extends antlr4.Parser {
 	    let localctx = new CmdContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 4, HrlangParser.RULE_cmd);
 	    try {
-	        this.state = 28;
+	        this.state = 34;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
 	        case HrlangParser.T__2:
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 25;
 	            this.cmdleitura();
+	             console.log("leitura");
 	            break;
 	        case HrlangParser.T__3:
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 26;
+	            this.state = 28;
 	            this.cmdescrita();
+	             console.log("escrita");
 	            break;
 	        case HrlangParser.ID:
 	            this.enterOuterAlt(localctx, 3);
-	            this.state = 27;
+	            this.state = 31;
 	            this.cmdattrib();
+	             console.log("atribuicao");
 	            break;
 	        default:
 	            throw new antlr4.error.NoViableAltException(this);
@@ -176,15 +182,16 @@ export default class HrlangParser extends antlr4.Parser {
 	    this.enterRule(localctx, 6, HrlangParser.RULE_cmdleitura);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 30;
+	        this.state = 36;
 	        this.match(HrlangParser.T__2);
-	        this.state = 31;
+	        this.state = 37;
 	        this.match(HrlangParser.AP);
-	        this.state = 32;
+	        this.state = 38;
 	        this.match(HrlangParser.ID);
-	        this.state = 33;
+	         console.log("ID", this._input.LT(-1).type);
+	        this.state = 40;
 	        this.match(HrlangParser.FP);
-	        this.state = 34;
+	        this.state = 41;
 	        this.match(HrlangParser.SC);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -207,15 +214,15 @@ export default class HrlangParser extends antlr4.Parser {
 	    this.enterRule(localctx, 8, HrlangParser.RULE_cmdescrita);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 36;
+	        this.state = 43;
 	        this.match(HrlangParser.T__3);
-	        this.state = 37;
+	        this.state = 44;
 	        this.match(HrlangParser.AP);
-	        this.state = 38;
+	        this.state = 45;
 	        this.match(HrlangParser.ID);
-	        this.state = 39;
+	        this.state = 46;
 	        this.match(HrlangParser.FP);
-	        this.state = 40;
+	        this.state = 47;
 	        this.match(HrlangParser.SC);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -238,13 +245,13 @@ export default class HrlangParser extends antlr4.Parser {
 	    this.enterRule(localctx, 10, HrlangParser.RULE_cmdattrib);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 42;
+	        this.state = 49;
 	        this.match(HrlangParser.ID);
-	        this.state = 43;
+	        this.state = 50;
 	        this.match(HrlangParser.ATTR);
-	        this.state = 44;
+	        this.state = 51;
 	        this.expr();
-	        this.state = 45;
+	        this.state = 52;
 	        this.match(HrlangParser.SC);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -268,17 +275,17 @@ export default class HrlangParser extends antlr4.Parser {
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 47;
+	        this.state = 54;
 	        this.termo();
-	        this.state = 52;
+	        this.state = 59;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        while(_la===HrlangParser.OP) {
-	            this.state = 48;
+	            this.state = 55;
 	            this.match(HrlangParser.OP);
-	            this.state = 49;
+	            this.state = 56;
 	            this.termo();
-	            this.state = 54;
+	            this.state = 61;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
@@ -304,7 +311,7 @@ export default class HrlangParser extends antlr4.Parser {
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 55;
+	        this.state = 62;
 	        _la = this._input.LA(1);
 	        if(!(_la===HrlangParser.ID || _la===HrlangParser.NUMBER)) {
 	        this._errHandler.recoverInline(this);
@@ -712,11 +719,11 @@ class TermoContext extends antlr4.ParserRuleContext {
 
 
 
-HrlangParser.ProgContext = ProgContext; 
-HrlangParser.BlocoContext = BlocoContext; 
-HrlangParser.CmdContext = CmdContext; 
-HrlangParser.CmdleituraContext = CmdleituraContext; 
-HrlangParser.CmdescritaContext = CmdescritaContext; 
-HrlangParser.CmdattribContext = CmdattribContext; 
-HrlangParser.ExprContext = ExprContext; 
-HrlangParser.TermoContext = TermoContext; 
+HrlangParser.ProgContext = ProgContext;
+HrlangParser.BlocoContext = BlocoContext;
+HrlangParser.CmdContext = CmdContext;
+HrlangParser.CmdleituraContext = CmdleituraContext;
+HrlangParser.CmdescritaContext = CmdescritaContext;
+HrlangParser.CmdattribContext = CmdattribContext;
+HrlangParser.ExprContext = ExprContext;
+HrlangParser.TermoContext = TermoContext;

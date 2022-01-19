@@ -6,6 +6,9 @@
     "esbenp.prettier-vscode",
     "ms-azuretools.vscode-docker",
     "redhat.vscode-yaml",
-    "yzhang.markdown-all-in-one"
+    "yzhang.markdown-all-in-one",
+    "mike-lischke.vscode-antlr4",
+    "eamodio.gitlens",
+    "dbaeumer.vscode-eslint"
   ]
 }

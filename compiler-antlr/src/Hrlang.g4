@@ -7,14 +7,13 @@ prog : 'programa' bloco  'fimprog;'
 bloco : (cmd)+
       ;
 
-
-cmd : cmdleitura
-    | cmdescrita
-    | cmdattrib
+cmd : cmdleitura { console.log("leitura"); }
+    | cmdescrita { console.log("escrita"); }
+    | cmdattrib { console.log("atribuicao"); }
     ;
 
 cmdleitura : 'leia' AP
-                    ID
+                    ID { console.log("ID", this._input.LT(-1).type);}
                     FP
                     SC
            ;

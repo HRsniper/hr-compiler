@@ -3,6 +3,9 @@ programa
   leia(a);
   leia(b);
 
+  a = 1;
+  b = 2;
+
      escreva (a);
      escreva (b);
 fimprog;
