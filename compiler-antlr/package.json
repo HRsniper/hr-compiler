@@ -7,7 +7,7 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node src/main.js",
-    "antlrgen": "antlr4 -Dlanguage=JavaScript -o src/antlr src/Hrlang.g4"
+    "antlr": "antlr4 -Dlanguage=JavaScript -o src/antlr src/Hrlang.g4"
   },
   "keywords": [],
   "author": "",

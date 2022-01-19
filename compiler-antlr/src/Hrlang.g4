@@ -1,19 +1,40 @@
 grammar Hrlang;
 
+@header{
+import { Symbol } from "../../datastructs/symbol.js";
+import { Variable } from "../../datastructs/variable.js";
+import { SymbolTable } from "../../datastructs/symbolTable.js";
+import { SemanticException } from "../../datastructs/exception.js";
+}
+
+@members{
+  let a;
+}
+
 // parser
-prog : 'programa' bloco  'fimprog;'
+prog : 'programa' decl bloco  'fimprog;'
+     ;
+
+decl : (declaravar)+
+     ;
+
+declaravar : tipo ID (VIR ID)* SC
+           ;
+
+tipo : 'numero' { console.log("tipo numero"); }
+     | 'texto' { console.log("tipo texto"); }
      ;
 
 bloco : (cmd)+
       ;
 
-cmd : cmdleitura { console.log("leitura"); }
-    | cmdescrita { console.log("escrita"); }
-    | cmdattrib { console.log("atribuicao"); }
+cmd : cmdleitura { console.log("cmd leitura"); }
+    | cmdescrita { console.log("cmd escrita"); }
+    | cmdattrib { console.log("cmd atribuicao"); }
     ;
 
 cmdleitura : 'leia' AP
-                    ID { console.log("ID", this._input.LT(-1).type);}
+                    ID { console.log("ID", this._input.LT(-1).text);}
                     FP
                     SC
            ;

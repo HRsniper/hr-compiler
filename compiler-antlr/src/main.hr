@@ -1,5 +1,8 @@
 programa
 
+  numero a, b;
+  texto t1;
+
   leia(a);
   leia(b);
 
