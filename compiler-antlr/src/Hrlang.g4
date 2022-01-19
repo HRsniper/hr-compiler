@@ -8,7 +8,11 @@ import { SemanticException } from "../../exception/exception.js";
 }
 
 @members{
-this._tipo = "";
+this._tipo = new Number();
+this._varName = new String();
+this._varValue = new String();
+this.symbolTable = new SymbolTable();
+this.symbol = new Symbol();
 }
 
 // parser
@@ -18,11 +22,18 @@ prog : 'programa' decl bloco  'fimprog;'
 decl : (declaravar)+
      ;
 
-declaravar : tipo ID (VIR ID)* SC
+declaravar : tipo ID {
+                       this._varName = this._input.LT(-1).text;
+                       this._varValue = null;
+                       this.symbol = new Variable(this._varName, this._tipo, this._varValue);
+                       this.symbolTable.add(this.symbol);
+                     }
+             (VIR ID)*
+             SC
            ;
 
-tipo : 'numero' { console.log("tipo numero"); }
-     | 'texto' { console.log("tipo texto"); }
+tipo : 'numero' { this._tipo = Variable.NUMBER; }
+     | 'texto' { this._tipo = Variable.TEXT; }
      ;
 
 bloco : (cmd)+

@@ -115,7 +115,11 @@ export default class HrlangLexer extends antlr4.Lexer {
         super(input)
         this._interp = new antlr4.atn.LexerATNSimulator(this, atn, decisionsToDFA, new antlr4.PredictionContextCache());
 
-        this._tipo = "";
+        this._tipo = new Number();
+        this._varName = new String();
+        this._varValue = new String();
+        this.symbolTable = new SymbolTable();
+        this.symbol = new Symbol();
 
     }
 
