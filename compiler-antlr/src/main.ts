@@ -1,6 +1,6 @@
-import { LexicalException, SyntaxException } from "./exception";
-import { Scanner } from "./scanner";
-import { Parser } from "./parser";
+import { LexicalException, SyntaxException } from "./exception/exception";
+import { Scanner } from "./lexer/scanner";
+import { Parser } from "./parser/parser";
 
 class Main {
   constructor() {}

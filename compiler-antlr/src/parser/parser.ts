@@ -1,6 +1,6 @@
-import { SyntaxException } from "./exception";
-import { Scanner } from "./scanner";
-import { Token } from "./token";
+import { SyntaxException } from "../exception/exception";
+import { Scanner } from "../lexer/scanner";
+import { Token } from "../lexer/token";
 
 export class Parser {
   private scanner: Scanner;

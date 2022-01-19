@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { LexicalException } from "./exception";
+import { LexicalException } from "../exception/exception";
 import { Token } from "./token";
 
 export class Scanner {
