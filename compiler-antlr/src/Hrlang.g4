@@ -26,7 +26,6 @@ declaravar : tipo ID {
                        this._varName = this._input.LT(-1).text;
                        this._varValue = null;
                        this.symbol = new Variable(this._varName, this._tipo, this._varValue);
-                       console.log("symbol", this.symbol);
                        if(!this.symbolTable.exists(this._varName)){
                          this.symbolTable.add(this.symbol);
                        }else{
@@ -37,7 +36,6 @@ declaravar : tipo ID {
                        this._varName = this._input.LT(-1).text;
                        this._varValue = null;
                        this.symbol = new Variable(this._varName, this._tipo, this._varValue);
-                       console.log("symbol", this.symbol);
                        if(!this.symbolTable.exists(this._varName)){
                          this.symbolTable.add(this.symbol);
                        }else{
@@ -55,13 +53,18 @@ tipo : 'numero' { this._tipo = Variable.NUMBER; }
 bloco : (cmd)+
       ;
 
-cmd : cmdleitura { console.log("cmd leitura"); }
-    | cmdescrita { console.log("cmd escrita"); }
-    | cmdattrib { console.log("cmd atribuicao"); }
+cmd : cmdleitura
+    | cmdescrita
+    | cmdattrib
     ;
 
 cmdleitura : 'leia' AP
-                    ID { console.log("ID", this._input.LT(-1).text);}
+                    ID {
+                         this._varName = this._input.LT(-1).text;
+                         if(!this.symbolTable.exists(this._varName)){
+                           throw new SemanticException("Symbol " + this._varName + " not declared");
+                         }
+                       }
                     FP
                     SC
            ;
