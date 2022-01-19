@@ -4,6 +4,7 @@ import HrlangParser from "./antlr/src/HrlangParser.js";
 import HrlangListener from "./antlr/src/HrlangListener.js";
 import fs from "fs";
 import path from "path";
+import { SemanticException } from "./exception/exception.js";
 class Main {
   constructor() {}
 
@@ -25,6 +26,10 @@ class Main {
       console.log("Compilation Successful");
     } catch (error) {
       console.error("ERROR: ", error);
+
+      if (error instanceof SemanticException) {
+        console.error("SEMANTIC ERROR: ", error.message);
+      }
     }
   }
 }

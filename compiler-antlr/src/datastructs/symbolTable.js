@@ -5,7 +5,7 @@ export class SymbolTable {
     add(symbol) {
         this.map.set(symbol.getName(), symbol);
     }
-    exits(symbolName) {
+    exists(symbolName) {
         return this.map.get(symbolName) != null;
     }
     get(symbolName) {

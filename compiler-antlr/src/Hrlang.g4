@@ -26,9 +26,25 @@ declaravar : tipo ID {
                        this._varName = this._input.LT(-1).text;
                        this._varValue = null;
                        this.symbol = new Variable(this._varName, this._tipo, this._varValue);
-                       this.symbolTable.add(this.symbol);
+                       console.log("symbol", this.symbol);
+                       if(!this.symbolTable.exists(this._varName)){
+                         this.symbolTable.add(this.symbol);
+                       }else{
+                         throw new SemanticException("Variable " + this._varName + " already declared");
+                       }
                      }
-             (VIR ID)*
+             (VIR ID {
+                       this._varName = this._input.LT(-1).text;
+                       this._varValue = null;
+                       this.symbol = new Variable(this._varName, this._tipo, this._varValue);
+                       console.log("symbol", this.symbol);
+                       if(!this.symbolTable.exists(this._varName)){
+                         this.symbolTable.add(this.symbol);
+                       }else{
+                         throw new SemanticException("Variable " + this._varName + " already declared");
+                       }
+                     }
+             )*
              SC
            ;
 

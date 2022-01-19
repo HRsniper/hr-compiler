@@ -14,7 +14,7 @@ export class SymbolTable {
     this.map.set(symbol.getName(), symbol);
   }
 
-  public exits(symbolName: string): boolean {
+  public exists(symbolName: string): boolean {
     return this.map.get(symbolName) != null;
   }
 
