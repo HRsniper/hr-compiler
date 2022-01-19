@@ -1,1 +1,8 @@
-abc + 123 * 456 / 12.0 abc
+programa
+
+  leia(a);
+  leia(b);
+
+     escreva (a);
+     escreva (b);
+fimprog;

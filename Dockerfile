@@ -29,3 +29,5 @@ RUN alias grun='java -Xmx500M -cp "${ANTLR_JAR_PATH}" org.antlr.v4.gui.TestRig'
 
 CMD [ "tail", "-f", "/dev/null" ]
 # ENTRYPOINT ["antlr4"]
+
+#  antlr4 -Dlanguage=JavaScript -o src/antlr src/hrlang.g4
