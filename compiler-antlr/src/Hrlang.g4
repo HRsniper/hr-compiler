@@ -41,7 +41,6 @@ this.exibeComandos = function(){
 prog : 'programa' decl bloco  'fimprog;'
        {
          this.program.setComandos(this.curThread);
-         this.exibeComandos();
        }
      ;
 

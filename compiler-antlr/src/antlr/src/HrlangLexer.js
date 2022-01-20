@@ -135,6 +135,7 @@ export default class HrlangLexer extends antlr4.Lexer {
         this.symbol = new Symbol();
         this.program = new Program();
         this.curThread = new Array();
+        // this.curThread = new Array<AbstractCommand>();
         this._readID = new String();
         this._writeID = new String();
         // this.cmd;

@@ -17,6 +17,7 @@ class Main {
             const parser = new HrlangParser(tokens);
             parser.buildParseTrees = true;
             const tree = parser.prog();
+            parser.exibeComandos();
             console.log("Compilation Successful");
         }
         catch (error) {

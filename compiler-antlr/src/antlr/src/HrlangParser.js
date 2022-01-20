@@ -117,6 +117,7 @@ export default class HrlangParser extends antlr4.Parser {
         this.symbol = new Symbol();
         this.program = new Program();
         this.curThread = new Array();
+        // this.curThread = new Array<AbstractCommand>();
         this._readID = new String();
         this._writeID = new String();
         // this.cmd;
@@ -156,7 +157,6 @@ export default class HrlangParser extends antlr4.Parser {
 	        this.match(HrlangParser.T__1);
 
 	                 this.program.setComandos(this.curThread);
-	                 this.exibeComandos();
 	               
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {

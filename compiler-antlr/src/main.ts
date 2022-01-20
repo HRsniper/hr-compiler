@@ -23,6 +23,7 @@ class Main {
       parser.buildParseTrees = true;
       const tree = parser.prog();
 
+      parser.exibeComandos();
       console.log("Compilation Successful");
     } catch (error) {
       console.error("ERROR: ", error);
