@@ -16,4 +16,6 @@ export abstract class Symbol {
   public toString(): string {
     return `Symbol: [name=${this.name}]`;
   }
+
+  public abstract generateJavascriptCode(): string;
 }

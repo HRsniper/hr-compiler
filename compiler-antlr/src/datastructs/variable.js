@@ -20,6 +20,16 @@ export class Variable extends Symbol {
     toString() {
         return `Variable: [name=${this.name}, type=${this.type}, value=${this.value}]`;
     }
+    generateJavascriptCode() {
+        let str;
+        if (this.type == Variable.NUMBER) {
+            str = `let ${this.name}: number`;
+        }
+        else {
+            str = `let ${this.name}: string`;
+        }
+        return str;
+    }
 }
 Variable.NUMBER = 0;
 Variable.TEXT = 1;

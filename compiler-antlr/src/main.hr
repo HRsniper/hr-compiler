@@ -9,7 +9,7 @@ programa
   b = 2;
   a = 1 + 3 * 2 / b;
 
-  se(a == b) {
+  se(a > b) {
      escreva (a);
   }
   senao {

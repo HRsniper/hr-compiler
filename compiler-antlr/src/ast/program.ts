@@ -32,5 +32,15 @@ export class Program {
     this.programName = value;
   }
 
-  public generateTarget(): void {}
+  public generateTarget(): void {
+    let str: string = "";
+    str += "export class Builder {\n";
+    str += "constructor() {}\n";
+    str += "public main(): void {\n";
+    for (const symbol of this.varTable.getAll()) {
+      str += symbol.generateJavascriptCode() + "\n";
+    }
+    str += "}\n";
+    str += "}\n";
+  }
 }

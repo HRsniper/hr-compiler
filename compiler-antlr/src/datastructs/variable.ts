@@ -31,4 +31,14 @@ export class Variable extends Symbol {
   public toString(): string {
     return `Variable: [name=${this.name}, type=${this.type}, value=${this.value}]`;
   }
+
+  public generateJavascriptCode(): string {
+    let str: string;
+    if (this.type == Variable.NUMBER) {
+      str = `let ${this.name}: number`;
+    } else {
+      str = `let ${this.name}: string`;
+    }
+    return str;
+  }
 }

@@ -21,4 +21,12 @@ export class SymbolTable {
   public get(symbolName: string): Symbol | undefined {
     return this.map.get(symbolName);
   }
+
+  public getAll(): Array<Symbol> {
+    let symbols: Array<Symbol> = new Array<Symbol>();
+    for (let symbol of this.map.values()) {
+      symbols.push(symbol);
+    }
+    return symbols;
+  }
 }
