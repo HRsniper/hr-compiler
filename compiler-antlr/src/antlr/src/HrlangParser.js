@@ -14,72 +14,73 @@ import { CommandEscrita } from "../../ast/commandEscrita.js";
 
 
 const serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786",
-    "\u5964\u0003\u0016~\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004",
-    "\t\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007",
-    "\u0004\b\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004\f\t\f",
-    "\u0004\r\t\r\u0003\u0002\u0003\u0002\u0003\u0002\u0003\u0002\u0003\u0002",
-    "\u0003\u0003\u0006\u0003!\n\u0003\r\u0003\u000e\u0003\"\u0003\u0004",
-    "\u0003\u0004\u0003\u0004\u0003\u0004\u0003\u0004\u0003\u0004\u0007\u0004",
-    "+\n\u0004\f\u0004\u000e\u0004.\u000b\u0004\u0003\u0004\u0003\u0004\u0003",
-    "\u0005\u0003\u0005\u0003\u0005\u0003\u0005\u0005\u00056\n\u0005\u0003",
-    "\u0006\u0006\u00069\n\u0006\r\u0006\u000e\u0006:\u0003\u0007\u0003\u0007",
-    "\u0003\u0007\u0003\u0007\u0005\u0007A\n\u0007\u0003\b\u0003\b\u0003",
-    "\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\t\u0003\t\u0003\t\u0003",
-    "\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\n\u0003\n\u0003\n\u0003\n\u0003",
-    "\n\u0003\n\u0003\u000b\u0003\u000b\u0003\u000b\u0003\u000b\u0003\u000b",
-    "\u0003\u000b\u0003\u000b\u0003\u000b\u0006\u000ba\n\u000b\r\u000b\u000e",
-    "\u000bb\u0003\u000b\u0003\u000b\u0003\u000b\u0003\u000b\u0006\u000b",
-    "i\n\u000b\r\u000b\u000e\u000bj\u0003\u000b\u0003\u000b\u0005\u000bo",
-    "\n\u000b\u0003\f\u0003\f\u0003\f\u0007\ft\n\f\f\f\u000e\fw\u000b\f\u0003",
-    "\r\u0003\r\u0003\r\u0005\r|\n\r\u0003\r\u0002\u0002\u000e\u0002\u0004",
-    "\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016\u0018\u0002\u0003\u0003\u0002",
-    "\u0014\u0015\u0002}\u0002\u001a\u0003\u0002\u0002\u0002\u0004 \u0003",
-    "\u0002\u0002\u0002\u0006$\u0003\u0002\u0002\u0002\b5\u0003\u0002\u0002",
-    "\u0002\n8\u0003\u0002\u0002\u0002\f@\u0003\u0002\u0002\u0002\u000eB",
-    "\u0003\u0002\u0002\u0002\u0010J\u0003\u0002\u0002\u0002\u0012R\u0003",
-    "\u0002\u0002\u0002\u0014X\u0003\u0002\u0002\u0002\u0016p\u0003\u0002",
-    "\u0002\u0002\u0018{\u0003\u0002\u0002\u0002\u001a\u001b\u0007\u0003",
-    "\u0002\u0002\u001b\u001c\u0005\u0004\u0003\u0002\u001c\u001d\u0005\n",
-    "\u0006\u0002\u001d\u001e\u0007\u0004\u0002\u0002\u001e\u0003\u0003\u0002",
-    "\u0002\u0002\u001f!\u0005\u0006\u0004\u0002 \u001f\u0003\u0002\u0002",
-    "\u0002!\"\u0003\u0002\u0002\u0002\" \u0003\u0002\u0002\u0002\"#\u0003",
-    "\u0002\u0002\u0002#\u0005\u0003\u0002\u0002\u0002$%\u0005\b\u0005\u0002",
-    "%&\u0007\u0014\u0002\u0002&,\b\u0004\u0001\u0002\'(\u0007\u0010\u0002",
-    "\u0002()\u0007\u0014\u0002\u0002)+\b\u0004\u0001\u0002*\'\u0003\u0002",
-    "\u0002\u0002+.\u0003\u0002\u0002\u0002,*\u0003\u0002\u0002\u0002,-\u0003",
-    "\u0002\u0002\u0002-/\u0003\u0002\u0002\u0002.,\u0003\u0002\u0002\u0002",
-    "/0\u0007\r\u0002\u00020\u0007\u0003\u0002\u0002\u000212\u0007\u0005",
-    "\u0002\u000226\b\u0005\u0001\u000234\u0007\u0006\u0002\u000246\b\u0005",
-    "\u0001\u000251\u0003\u0002\u0002\u000253\u0003\u0002\u0002\u00026\t",
-    "\u0003\u0002\u0002\u000279\u0005\f\u0007\u000287\u0003\u0002\u0002\u0002",
-    "9:\u0003\u0002\u0002\u0002:8\u0003\u0002\u0002\u0002:;\u0003\u0002\u0002",
-    "\u0002;\u000b\u0003\u0002\u0002\u0002<A\u0005\u000e\b\u0002=A\u0005",
-    "\u0010\t\u0002>A\u0005\u0012\n\u0002?A\u0005\u0014\u000b\u0002@<\u0003",
-    "\u0002\u0002\u0002@=\u0003\u0002\u0002\u0002@>\u0003\u0002\u0002\u0002",
-    "@?\u0003\u0002\u0002\u0002A\r\u0003\u0002\u0002\u0002BC\u0007\u0007",
-    "\u0002\u0002CD\u0007\u000b\u0002\u0002DE\u0007\u0014\u0002\u0002EF\b",
-    "\b\u0001\u0002FG\u0007\f\u0002\u0002GH\b\b\u0001\u0002HI\u0007\r\u0002",
-    "\u0002I\u000f\u0003\u0002\u0002\u0002JK\u0007\b\u0002\u0002KL\u0007",
-    "\u000b\u0002\u0002LM\u0007\u0014\u0002\u0002MN\b\t\u0001\u0002NO\u0007",
-    "\f\u0002\u0002OP\b\t\u0001\u0002PQ\u0007\r\u0002\u0002Q\u0011\u0003",
-    "\u0002\u0002\u0002RS\u0007\u0014\u0002\u0002ST\b\n\u0001\u0002TU\u0007",
-    "\u000f\u0002\u0002UV\u0005\u0016\f\u0002VW\u0007\r\u0002\u0002W\u0013",
-    "\u0003\u0002\u0002\u0002XY\u0007\t\u0002\u0002YZ\u0007\u000b\u0002\u0002",
-    "Z[\u0007\u0014\u0002\u0002[\\\u0007\u0013\u0002\u0002\\]\t\u0002\u0002",
-    "\u0002]^\u0007\f\u0002\u0002^`\u0007\u0011\u0002\u0002_a\u0005\f\u0007",
-    "\u0002`_\u0003\u0002\u0002\u0002ab\u0003\u0002\u0002\u0002b`\u0003\u0002",
-    "\u0002\u0002bc\u0003\u0002\u0002\u0002cd\u0003\u0002\u0002\u0002dn\u0007",
-    "\u0012\u0002\u0002ef\u0007\n\u0002\u0002fh\u0007\u0011\u0002\u0002g",
-    "i\u0005\f\u0007\u0002hg\u0003\u0002\u0002\u0002ij\u0003\u0002\u0002",
-    "\u0002jh\u0003\u0002\u0002\u0002jk\u0003\u0002\u0002\u0002kl\u0003\u0002",
-    "\u0002\u0002lm\u0007\u0012\u0002\u0002mo\u0003\u0002\u0002\u0002ne\u0003",
-    "\u0002\u0002\u0002no\u0003\u0002\u0002\u0002o\u0015\u0003\u0002\u0002",
-    "\u0002pu\u0005\u0018\r\u0002qr\u0007\u000e\u0002\u0002rt\u0005\u0018",
-    "\r\u0002sq\u0003\u0002\u0002\u0002tw\u0003\u0002\u0002\u0002us\u0003",
-    "\u0002\u0002\u0002uv\u0003\u0002\u0002\u0002v\u0017\u0003\u0002\u0002",
-    "\u0002wu\u0003\u0002\u0002\u0002xy\u0007\u0014\u0002\u0002y|\b\r\u0001",
-    "\u0002z|\u0007\u0015\u0002\u0002{x\u0003\u0002\u0002\u0002{z\u0003\u0002",
-    "\u0002\u0002|\u0019\u0003\u0002\u0002\u0002\f\",5:@bjnu{"].join("");
+    "\u5964\u0003\u0016\u007f\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004",
+    "\u0004\t\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t",
+    "\u0007\u0004\b\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004",
+    "\f\t\f\u0004\r\t\r\u0003\u0002\u0003\u0002\u0003\u0002\u0003\u0002\u0003",
+    "\u0002\u0003\u0002\u0003\u0003\u0006\u0003\"\n\u0003\r\u0003\u000e\u0003",
+    "#\u0003\u0004\u0003\u0004\u0003\u0004\u0003\u0004\u0003\u0004\u0003",
+    "\u0004\u0007\u0004,\n\u0004\f\u0004\u000e\u0004/\u000b\u0004\u0003\u0004",
+    "\u0003\u0004\u0003\u0005\u0003\u0005\u0003\u0005\u0003\u0005\u0005\u0005",
+    "7\n\u0005\u0003\u0006\u0006\u0006:\n\u0006\r\u0006\u000e\u0006;\u0003",
+    "\u0007\u0003\u0007\u0003\u0007\u0003\u0007\u0005\u0007B\n\u0007\u0003",
+    "\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\t\u0003",
+    "\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\n\u0003\n\u0003",
+    "\n\u0003\n\u0003\n\u0003\n\u0003\u000b\u0003\u000b\u0003\u000b\u0003",
+    "\u000b\u0003\u000b\u0003\u000b\u0003\u000b\u0003\u000b\u0006\u000bb",
+    "\n\u000b\r\u000b\u000e\u000bc\u0003\u000b\u0003\u000b\u0003\u000b\u0003",
+    "\u000b\u0006\u000bj\n\u000b\r\u000b\u000e\u000bk\u0003\u000b\u0003\u000b",
+    "\u0005\u000bp\n\u000b\u0003\f\u0003\f\u0003\f\u0007\fu\n\f\f\f\u000e",
+    "\fx\u000b\f\u0003\r\u0003\r\u0003\r\u0005\r}\n\r\u0003\r\u0002\u0002",
+    "\u000e\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016\u0018\u0002",
+    "\u0003\u0003\u0002\u0014\u0015\u0002~\u0002\u001a\u0003\u0002\u0002",
+    "\u0002\u0004!\u0003\u0002\u0002\u0002\u0006%\u0003\u0002\u0002\u0002",
+    "\b6\u0003\u0002\u0002\u0002\n9\u0003\u0002\u0002\u0002\fA\u0003\u0002",
+    "\u0002\u0002\u000eC\u0003\u0002\u0002\u0002\u0010K\u0003\u0002\u0002",
+    "\u0002\u0012S\u0003\u0002\u0002\u0002\u0014Y\u0003\u0002\u0002\u0002",
+    "\u0016q\u0003\u0002\u0002\u0002\u0018|\u0003\u0002\u0002\u0002\u001a",
+    "\u001b\u0007\u0003\u0002\u0002\u001b\u001c\u0005\u0004\u0003\u0002\u001c",
+    "\u001d\u0005\n\u0006\u0002\u001d\u001e\u0007\u0004\u0002\u0002\u001e",
+    "\u001f\b\u0002\u0001\u0002\u001f\u0003\u0003\u0002\u0002\u0002 \"\u0005",
+    "\u0006\u0004\u0002! \u0003\u0002\u0002\u0002\"#\u0003\u0002\u0002\u0002",
+    "#!\u0003\u0002\u0002\u0002#$\u0003\u0002\u0002\u0002$\u0005\u0003\u0002",
+    "\u0002\u0002%&\u0005\b\u0005\u0002&\'\u0007\u0014\u0002\u0002\'-\b\u0004",
+    "\u0001\u0002()\u0007\u0010\u0002\u0002)*\u0007\u0014\u0002\u0002*,\b",
+    "\u0004\u0001\u0002+(\u0003\u0002\u0002\u0002,/\u0003\u0002\u0002\u0002",
+    "-+\u0003\u0002\u0002\u0002-.\u0003\u0002\u0002\u0002.0\u0003\u0002\u0002",
+    "\u0002/-\u0003\u0002\u0002\u000201\u0007\r\u0002\u00021\u0007\u0003",
+    "\u0002\u0002\u000223\u0007\u0005\u0002\u000237\b\u0005\u0001\u00024",
+    "5\u0007\u0006\u0002\u000257\b\u0005\u0001\u000262\u0003\u0002\u0002",
+    "\u000264\u0003\u0002\u0002\u00027\t\u0003\u0002\u0002\u00028:\u0005",
+    "\f\u0007\u000298\u0003\u0002\u0002\u0002:;\u0003\u0002\u0002\u0002;",
+    "9\u0003\u0002\u0002\u0002;<\u0003\u0002\u0002\u0002<\u000b\u0003\u0002",
+    "\u0002\u0002=B\u0005\u000e\b\u0002>B\u0005\u0010\t\u0002?B\u0005\u0012",
+    "\n\u0002@B\u0005\u0014\u000b\u0002A=\u0003\u0002\u0002\u0002A>\u0003",
+    "\u0002\u0002\u0002A?\u0003\u0002\u0002\u0002A@\u0003\u0002\u0002\u0002",
+    "B\r\u0003\u0002\u0002\u0002CD\u0007\u0007\u0002\u0002DE\u0007\u000b",
+    "\u0002\u0002EF\u0007\u0014\u0002\u0002FG\b\b\u0001\u0002GH\u0007\f\u0002",
+    "\u0002HI\b\b\u0001\u0002IJ\u0007\r\u0002\u0002J\u000f\u0003\u0002\u0002",
+    "\u0002KL\u0007\b\u0002\u0002LM\u0007\u000b\u0002\u0002MN\u0007\u0014",
+    "\u0002\u0002NO\b\t\u0001\u0002OP\u0007\f\u0002\u0002PQ\b\t\u0001\u0002",
+    "QR\u0007\r\u0002\u0002R\u0011\u0003\u0002\u0002\u0002ST\u0007\u0014",
+    "\u0002\u0002TU\b\n\u0001\u0002UV\u0007\u000f\u0002\u0002VW\u0005\u0016",
+    "\f\u0002WX\u0007\r\u0002\u0002X\u0013\u0003\u0002\u0002\u0002YZ\u0007",
+    "\t\u0002\u0002Z[\u0007\u000b\u0002\u0002[\\\u0007\u0014\u0002\u0002",
+    "\\]\u0007\u0013\u0002\u0002]^\t\u0002\u0002\u0002^_\u0007\f\u0002\u0002",
+    "_a\u0007\u0011\u0002\u0002`b\u0005\f\u0007\u0002a`\u0003\u0002\u0002",
+    "\u0002bc\u0003\u0002\u0002\u0002ca\u0003\u0002\u0002\u0002cd\u0003\u0002",
+    "\u0002\u0002de\u0003\u0002\u0002\u0002eo\u0007\u0012\u0002\u0002fg\u0007",
+    "\n\u0002\u0002gi\u0007\u0011\u0002\u0002hj\u0005\f\u0007\u0002ih\u0003",
+    "\u0002\u0002\u0002jk\u0003\u0002\u0002\u0002ki\u0003\u0002\u0002\u0002",
+    "kl\u0003\u0002\u0002\u0002lm\u0003\u0002\u0002\u0002mn\u0007\u0012\u0002",
+    "\u0002np\u0003\u0002\u0002\u0002of\u0003\u0002\u0002\u0002op\u0003\u0002",
+    "\u0002\u0002p\u0015\u0003\u0002\u0002\u0002qv\u0005\u0018\r\u0002rs",
+    "\u0007\u000e\u0002\u0002su\u0005\u0018\r\u0002tr\u0003\u0002\u0002\u0002",
+    "ux\u0003\u0002\u0002\u0002vt\u0003\u0002\u0002\u0002vw\u0003\u0002\u0002",
+    "\u0002w\u0017\u0003\u0002\u0002\u0002xv\u0003\u0002\u0002\u0002yz\u0007",
+    "\u0014\u0002\u0002z}\b\r\u0001\u0002{}\u0007\u0015\u0002\u0002|y\u0003",
+    "\u0002\u0002\u0002|{\u0003\u0002\u0002\u0002}\u0019\u0003\u0002\u0002",
+    "\u0002\f#-6;Ackov|"].join("");
 
 
 const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -126,6 +127,12 @@ export default class HrlangParser extends antlr4.Parser {
             }
           }
 
+        this.exibeComandos = function(){
+            for (const cmds of this.program.getComandos()) {
+              console.log(cmds);
+            }
+          }
+
     }
 
     get atn() {
@@ -147,6 +154,10 @@ export default class HrlangParser extends antlr4.Parser {
 	        this.bloco();
 	        this.state = 27;
 	        this.match(HrlangParser.T__1);
+
+	                 this.program.setComandos(this.curThread);
+	                 this.exibeComandos();
+	               
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -169,13 +180,13 @@ export default class HrlangParser extends antlr4.Parser {
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 30; 
+	        this.state = 31; 
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        do {
-	            this.state = 29;
+	            this.state = 30;
 	            this.declaravar();
-	            this.state = 32; 
+	            this.state = 33; 
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        } while(_la===HrlangParser.T__2 || _la===HrlangParser.T__3);
@@ -201,9 +212,9 @@ export default class HrlangParser extends antlr4.Parser {
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 34;
-	        this.tipo();
 	        this.state = 35;
+	        this.tipo();
+	        this.state = 36;
 	        this.match(HrlangParser.ID);
 
 	                               this._varName = this._input.LT(-1).text;
@@ -215,13 +226,13 @@ export default class HrlangParser extends antlr4.Parser {
 	                                 throw new SemanticException("Variable " + this._varName + " already declared");
 	                               }
 	                             
-	        this.state = 42;
+	        this.state = 43;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        while(_la===HrlangParser.VIR) {
-	            this.state = 37;
-	            this.match(HrlangParser.VIR);
 	            this.state = 38;
+	            this.match(HrlangParser.VIR);
+	            this.state = 39;
 	            this.match(HrlangParser.ID);
 
 	                                   this._varName = this._input.LT(-1).text;
@@ -233,11 +244,11 @@ export default class HrlangParser extends antlr4.Parser {
 	                                     throw new SemanticException("Variable " + this._varName + " already declared");
 	                                   }
 	                                 
-	            this.state = 44;
+	            this.state = 45;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
-	        this.state = 45;
+	        this.state = 46;
 	        this.match(HrlangParser.SC);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -259,18 +270,18 @@ export default class HrlangParser extends antlr4.Parser {
 	    let localctx = new TipoContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 6, HrlangParser.RULE_tipo);
 	    try {
-	        this.state = 51;
+	        this.state = 52;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
 	        case HrlangParser.T__2:
 	            this.enterOuterAlt(localctx, 1);
-	            this.state = 47;
+	            this.state = 48;
 	            this.match(HrlangParser.T__2);
 	             this._tipo = Variable.NUMBER; 
 	            break;
 	        case HrlangParser.T__3:
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 49;
+	            this.state = 50;
 	            this.match(HrlangParser.T__3);
 	             this._tipo = Variable.TEXT; 
 	            break;
@@ -299,13 +310,13 @@ export default class HrlangParser extends antlr4.Parser {
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 54; 
+	        this.state = 55; 
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        do {
-	            this.state = 53;
+	            this.state = 54;
 	            this.cmd();
-	            this.state = 56; 
+	            this.state = 57; 
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        } while((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << HrlangParser.T__4) | (1 << HrlangParser.T__5) | (1 << HrlangParser.T__6) | (1 << HrlangParser.ID))) !== 0));
@@ -329,27 +340,27 @@ export default class HrlangParser extends antlr4.Parser {
 	    let localctx = new CmdContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 10, HrlangParser.RULE_cmd);
 	    try {
-	        this.state = 62;
+	        this.state = 63;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
 	        case HrlangParser.T__4:
 	            this.enterOuterAlt(localctx, 1);
-	            this.state = 58;
+	            this.state = 59;
 	            this.cmdleitura();
 	            break;
 	        case HrlangParser.T__5:
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 59;
+	            this.state = 60;
 	            this.cmdescrita();
 	            break;
 	        case HrlangParser.ID:
 	            this.enterOuterAlt(localctx, 3);
-	            this.state = 60;
+	            this.state = 61;
 	            this.cmdattrib();
 	            break;
 	        case HrlangParser.T__6:
 	            this.enterOuterAlt(localctx, 4);
-	            this.state = 61;
+	            this.state = 62;
 	            this.cmdselecao();
 	            break;
 	        default:
@@ -376,22 +387,22 @@ export default class HrlangParser extends antlr4.Parser {
 	    this.enterRule(localctx, 12, HrlangParser.RULE_cmdleitura);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 64;
-	        this.match(HrlangParser.T__4);
 	        this.state = 65;
-	        this.match(HrlangParser.AP);
+	        this.match(HrlangParser.T__4);
 	        this.state = 66;
+	        this.match(HrlangParser.AP);
+	        this.state = 67;
 	        this.match(HrlangParser.ID);
 	         this.verificaID(this._input.LT(-1).text);
 	                                 this._readID = this._input.LT(-1).text;
 	                               
-	        this.state = 68;
+	        this.state = 69;
 	        this.match(HrlangParser.FP);
 
 	                                let cmd = new CommandLeitura(this._readID);
 	                                this.curThread.push(cmd);
 	                              
-	        this.state = 70;
+	        this.state = 71;
 	        this.match(HrlangParser.SC);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -414,22 +425,22 @@ export default class HrlangParser extends antlr4.Parser {
 	    this.enterRule(localctx, 14, HrlangParser.RULE_cmdescrita);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 72;
-	        this.match(HrlangParser.T__5);
 	        this.state = 73;
-	        this.match(HrlangParser.AP);
+	        this.match(HrlangParser.T__5);
 	        this.state = 74;
+	        this.match(HrlangParser.AP);
+	        this.state = 75;
 	        this.match(HrlangParser.ID);
 	         this.verificaID(this._input.LT(-1).text);
 	                                   this._writeID = this._input.LT(-1).text;
 	                                 
-	        this.state = 76;
+	        this.state = 77;
 	        this.match(HrlangParser.FP);
 
 	                                  let cmd = new CommandEscrita(this._writeID);
 	                                  this.curThread.push(cmd);
 	                                
-	        this.state = 78;
+	        this.state = 79;
 	        this.match(HrlangParser.SC);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -452,14 +463,14 @@ export default class HrlangParser extends antlr4.Parser {
 	    this.enterRule(localctx, 16, HrlangParser.RULE_cmdattrib);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 80;
+	        this.state = 81;
 	        this.match(HrlangParser.ID);
 	         this.verificaID(this._input.LT(-1).text); 
-	        this.state = 82;
-	        this.match(HrlangParser.ATTR);
 	        this.state = 83;
-	        this.expr();
+	        this.match(HrlangParser.ATTR);
 	        this.state = 84;
+	        this.expr();
+	        this.state = 85;
 	        this.match(HrlangParser.SC);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -483,15 +494,15 @@ export default class HrlangParser extends antlr4.Parser {
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 86;
-	        this.match(HrlangParser.T__6);
 	        this.state = 87;
-	        this.match(HrlangParser.AP);
+	        this.match(HrlangParser.T__6);
 	        this.state = 88;
-	        this.match(HrlangParser.ID);
+	        this.match(HrlangParser.AP);
 	        this.state = 89;
-	        this.match(HrlangParser.OPREL);
+	        this.match(HrlangParser.ID);
 	        this.state = 90;
+	        this.match(HrlangParser.OPREL);
+	        this.state = 91;
 	        _la = this._input.LA(1);
 	        if(!(_la===HrlangParser.ID || _la===HrlangParser.NUMBER)) {
 	        this._errHandler.recoverInline(this);
@@ -500,41 +511,41 @@ export default class HrlangParser extends antlr4.Parser {
 	        	this._errHandler.reportMatch(this);
 	            this.consume();
 	        }
-	        this.state = 91;
-	        this.match(HrlangParser.FP);
 	        this.state = 92;
+	        this.match(HrlangParser.FP);
+	        this.state = 93;
 	        this.match(HrlangParser.ACH);
-	        this.state = 94; 
+	        this.state = 95; 
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        do {
-	            this.state = 93;
+	            this.state = 94;
 	            this.cmd();
-	            this.state = 96; 
+	            this.state = 97; 
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        } while((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << HrlangParser.T__4) | (1 << HrlangParser.T__5) | (1 << HrlangParser.T__6) | (1 << HrlangParser.ID))) !== 0));
-	        this.state = 98;
+	        this.state = 99;
 	        this.match(HrlangParser.FCH);
-	        this.state = 108;
+	        this.state = 109;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        if(_la===HrlangParser.T__7) {
-	            this.state = 99;
-	            this.match(HrlangParser.T__7);
 	            this.state = 100;
+	            this.match(HrlangParser.T__7);
+	            this.state = 101;
 	            this.match(HrlangParser.ACH);
-	            this.state = 102; 
+	            this.state = 103; 
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	            do {
-	                this.state = 101;
+	                this.state = 102;
 	                this.cmd();
-	                this.state = 104; 
+	                this.state = 105; 
 	                this._errHandler.sync(this);
 	                _la = this._input.LA(1);
 	            } while((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << HrlangParser.T__4) | (1 << HrlangParser.T__5) | (1 << HrlangParser.T__6) | (1 << HrlangParser.ID))) !== 0));
-	            this.state = 106;
+	            this.state = 107;
 	            this.match(HrlangParser.FCH);
 	        }
 
@@ -560,17 +571,17 @@ export default class HrlangParser extends antlr4.Parser {
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 110;
+	        this.state = 111;
 	        this.termo();
-	        this.state = 115;
+	        this.state = 116;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        while(_la===HrlangParser.OP) {
-	            this.state = 111;
-	            this.match(HrlangParser.OP);
 	            this.state = 112;
+	            this.match(HrlangParser.OP);
+	            this.state = 113;
 	            this.termo();
-	            this.state = 117;
+	            this.state = 118;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
@@ -594,18 +605,18 @@ export default class HrlangParser extends antlr4.Parser {
 	    let localctx = new TermoContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 22, HrlangParser.RULE_termo);
 	    try {
-	        this.state = 121;
+	        this.state = 122;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
 	        case HrlangParser.ID:
 	            this.enterOuterAlt(localctx, 1);
-	            this.state = 118;
+	            this.state = 119;
 	            this.match(HrlangParser.ID);
 	             this.verificaID(this._input.LT(-1).text); 
 	            break;
 	        case HrlangParser.NUMBER:
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 120;
+	            this.state = 121;
 	            this.match(HrlangParser.NUMBER);
 	            break;
 	        default:

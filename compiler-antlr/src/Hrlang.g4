@@ -19,6 +19,7 @@ this.symbolTable = new SymbolTable();
 this.symbol = new Symbol();
 this.program = new Program();
 this.curThread = new Array();
+// this.curThread = new Array<AbstractCommand>();
 this._readID = new String();
 this._writeID = new String();
 // this.cmd;
@@ -28,10 +29,20 @@ this.verificaID = function(id){
       throw new SemanticException("Symbol " + id + " not declared");
     }
   }
+
+this.exibeComandos = function(){
+    for (const cmds of this.program.getComandos()) {
+      console.log(cmds);
+    }
+  }
 }
 
 // parser
 prog : 'programa' decl bloco  'fimprog;'
+       {
+         this.program.setComandos(this.curThread);
+         this.exibeComandos();
+       }
      ;
 
 decl : (declaravar)+

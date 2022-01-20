@@ -145,6 +145,12 @@ export default class HrlangLexer extends antlr4.Lexer {
             }
           }
 
+        this.exibeComandos = function(){
+            for (const cmds of this.program.getComandos()) {
+              console.log(cmds);
+            }
+          }
+
     }
 
     get atn() {
