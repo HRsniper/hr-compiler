@@ -16,6 +16,8 @@ export class CommandLeitura extends AbstractCommand {
   }
 
   public generateJavascriptCode(): string {
-    throw new Error("Method not implemented.");
+    return `${this.id} = _key.${
+      this.var.getType() == Variable.NUMBER ? "valueOf()" : "valueOf()"
+    };\n`;
   }
 }

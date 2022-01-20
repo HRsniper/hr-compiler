@@ -40,7 +40,7 @@ export class Program {
         str += "}\n";
         str += "}\n";
         try {
-            fs.writeFileSync("./src/target/" + this.programName + ".ts", str, 
+            fs.writeFileSync(`${process.cwd()}/src/mainTS.ts`, str, 
             // str.toString(),
             "utf-8");
         }

@@ -24,6 +24,7 @@ class Main {
       const tree = parser.prog();
 
       parser.exibeComandos();
+      parser.generateCode();
       console.log("Compilation Successful");
     } catch (error) {
       console.error("ERROR: ", error);

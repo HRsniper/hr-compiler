@@ -25,6 +25,19 @@ export class CommandDecisao extends AbstractCommand {
   }
 
   public generateJavascriptCode(): string {
-    throw new Error("Method not implemented.");
+    let str: string = "";
+    str += `if (${this.condition}) {\n`;
+    for (const command of this.listaTrue) {
+      str += command.generateJavascriptCode() + "\n";
+    }
+    str += "}\n";
+    if (this.listaFalse.length > 0) {
+      str += "else {\n";
+      for (const command of this.listaFalse) {
+        str += command.generateJavascriptCode() + "\n";
+      }
+      str += "}\n";
+    }
+    return str.toString();
   }
 }

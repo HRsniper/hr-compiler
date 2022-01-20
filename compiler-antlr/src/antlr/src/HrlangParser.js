@@ -151,6 +151,10 @@ export default class HrlangParser extends antlr4.Parser {
             }
           }
 
+        this.generateCode = function(){
+            this.program.generateTarget();
+          }
+
     }
 
     get atn() {
@@ -172,7 +176,7 @@ export default class HrlangParser extends antlr4.Parser {
 	        this.bloco();
 	        this.state = 27;
 	        this.match(HrlangParser.T__1);
-
+	         this.program.setComandos(this.symbolTable);
 	                 this.program.setComandos(this.stack.pop());
 	               
 	    } catch (re) {

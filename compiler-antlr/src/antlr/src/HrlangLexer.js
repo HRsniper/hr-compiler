@@ -162,6 +162,10 @@ export default class HrlangLexer extends antlr4.Lexer {
             }
           }
 
+        this.generateCode = function(){
+            this.program.generateTarget();
+          }
+
     }
 
     get atn() {

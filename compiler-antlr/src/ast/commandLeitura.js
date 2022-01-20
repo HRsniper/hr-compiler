@@ -1,3 +1,4 @@
+import { Variable } from "../datastructs/variable.js";
 import { AbstractCommand } from "./abstractCommand.js";
 export class CommandLeitura extends AbstractCommand {
     constructor(id, vari) {
@@ -9,6 +10,6 @@ export class CommandLeitura extends AbstractCommand {
         return `CommandLeitura: [id=${this.id}]`;
     }
     generateJavascriptCode() {
-        throw new Error("Method not implemented.");
+        return `${this.id} = _key.${this.var.getType() == Variable.NUMBER ? "valueOf()" : "valueOf()"};\n`;
     }
 }

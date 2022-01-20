@@ -55,7 +55,7 @@ export class Program {
 
     try {
       fs.writeFileSync(
-        "./src/target/" + this.programName + ".ts",
+        `${process.cwd()}/src/mainTS.ts`,
         str,
         // str.toString(),
         "utf-8"

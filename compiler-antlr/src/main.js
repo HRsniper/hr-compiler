@@ -18,6 +18,7 @@ class Main {
             parser.buildParseTrees = true;
             const tree = parser.prog();
             parser.exibeComandos();
+            parser.generateCode();
             console.log("Compilation Successful");
         }
         catch (error) {

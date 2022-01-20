@@ -45,11 +45,15 @@ this.exibeComandos = function(){
       console.log(cmds);
     }
   }
+
+this.generateCode = function(){
+    this.program.generateTarget();
+  }
 }
 
 // parser
 prog : 'programa' decl bloco  'fimprog;'
-       {
+       { this.program.setComandos(this.symbolTable);
          this.program.setComandos(this.stack.pop());
        }
      ;
