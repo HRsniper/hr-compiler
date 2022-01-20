@@ -4,6 +4,9 @@ export class CommandEscrita extends AbstractCommand {
         super();
         this.id = id;
     }
+    toString() {
+        return `CommandEscrita: [id=${this.id}]`;
+    }
     generateJavascriptCode() {
         throw new Error("Method not implemented.");
     }

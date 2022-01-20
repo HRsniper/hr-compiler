@@ -8,6 +8,10 @@ export class CommandEscrita extends AbstractCommand {
     this.id = id;
   }
 
+  public toString(): string {
+    return `CommandEscrita: [id=${this.id}]`;
+  }
+
   public generateJavascriptCode(): string {
     throw new Error("Method not implemented.");
   }

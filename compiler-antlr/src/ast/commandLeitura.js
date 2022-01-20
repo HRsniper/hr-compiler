@@ -4,6 +4,9 @@ export class CommandLeitura extends AbstractCommand {
         super();
         this.id = id;
     }
+    toString() {
+        return `CommandLeitura: [id=${this.id}]`;
+    }
     generateJavascriptCode() {
         throw new Error("Method not implemented.");
     }

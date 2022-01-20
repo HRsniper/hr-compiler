@@ -8,6 +8,10 @@ export class CommandLeitura extends AbstractCommand {
     this.id = id;
   }
 
+  public toString(): string {
+    return `CommandLeitura: [id=${this.id}]`;
+  }
+
   public generateJavascriptCode(): string {
     throw new Error("Method not implemented.");
   }
