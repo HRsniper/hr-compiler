@@ -86,6 +86,15 @@ export default class HrlangListener extends antlr4.tree.ParseTreeListener {
 	}
 
 
+	// Enter a parse tree produced by HrlangParser#cmdselecao.
+	enterCmdselecao(ctx) {
+	}
+
+	// Exit a parse tree produced by HrlangParser#cmdselecao.
+	exitCmdselecao(ctx) {
+	}
+
+
 	// Enter a parse tree produced by HrlangParser#expr.
 	enterExpr(ctx) {
 	}

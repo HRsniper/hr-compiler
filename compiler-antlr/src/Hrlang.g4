@@ -5,6 +5,10 @@ import { Symbol } from "../../datastructs/symbol.js";
 import { Variable } from "../../datastructs/variable.js";
 import { SymbolTable } from "../../datastructs/symbolTable.js";
 import { SemanticException } from "../../exception/exception.js";
+import { Program } from "../../ast/program.js";
+import { AbstractCommand } from "../../ast/abstractCommand.js";
+import { CommandLeitura } from "../../ast/commandLeitura.js";
+import { CommandEscrita } from "../../ast/commandEscrita.js";
 }
 
 @members{
@@ -13,6 +17,12 @@ this._varName = new String();
 this._varValue = new String();
 this.symbolTable = new SymbolTable();
 this.symbol = new Symbol();
+this.program = new Program();
+this.curThread = new Array();
+this._readID = new String();
+this._writeID = new String();
+// this.cmd;
+
 this.verificaID = function(id){
     if(!this.symbolTable.exists(id)){
       throw new SemanticException("Symbol " + id + " not declared");
@@ -61,17 +71,30 @@ bloco : (cmd)+
 cmd : cmdleitura
     | cmdescrita
     | cmdattrib
+    | cmdselecao
     ;
 
 cmdleitura : 'leia' AP
-                    ID { this.verificaID(this._input.LT(-1).text); }
+                    ID { this.verificaID(this._input.LT(-1).text);
+                         this._readID = this._input.LT(-1).text;
+                       }
                     FP
+                      {
+                        let cmd = new CommandLeitura(this._readID);
+                        this.curThread.push(cmd);
+                      }
                     SC
            ;
 
 cmdescrita : 'escreva' AP
-                      ID { this.verificaID(this._input.LT(-1).text); }
+                      ID { this.verificaID(this._input.LT(-1).text);
+                           this._writeID = this._input.LT(-1).text;
+                         }
                       FP
+                        {
+                          let cmd = new CommandEscrita(this._writeID);
+                          this.curThread.push(cmd);
+                        }
                       SC
            ;
 
@@ -80,6 +103,11 @@ cmdattrib : ID { this.verificaID(this._input.LT(-1).text); }
             expr
             SC
           ;
+
+cmdselecao : 'se' AP ID OPREL (ID | NUMBER) FP
+             ACH (cmd)+ FCH
+             ('senao' ACH (cmd)+ FCH)?
+           ;
 
 expr : termo (OP termo)*
      ;
@@ -111,7 +139,6 @@ ACH  : '{'
 
 FCH  : '}'
      ;
-
 
 OPREL : '>' | '<' | '>=' | '<=' | '==' | '!='
       ;
