@@ -10,6 +10,7 @@ import { AbstractCommand } from "../../ast/abstractCommand.js";
 import { CommandLeitura } from "../../ast/commandLeitura.js";
 import { CommandEscrita } from "../../ast/commandEscrita.js";
 import { CommandAtribuicao } from "../../ast/commandAtribuicao.js";
+import { CommandDecisao } from "../../ast/commandDecisao.js";
 }
 
 @members{
@@ -27,6 +28,11 @@ this._writeID = new String();
 this._exprID = new String();
 this.stack = new Array();
 // this.stack = new Stack<ArrayList<AbstractCommand>>();
+this._exprDecision = new String();
+this.listaTrue = new Array();
+this.listaFalse = new Array();
+// this.listaTrue = new ArrayList<AbstractCommand>();
+// this.listaFalse = new ArrayList<AbstractCommand>();
 
 this.verificaID = function(id){
     if(!this.symbolTable.exists(id)){
@@ -79,8 +85,8 @@ tipo : 'numero' { this._tipo = Variable.NUMBER; }
      | 'texto' { this._tipo = Variable.TEXT; }
      ;
 
-bloco : { this.curThread = new Array();
-          this.stack.push(this.curThread);
+bloco : { let curThread = new Array();
+          this.stack.push(curThread);
         }
         (cmd)+
       ;
@@ -126,13 +132,37 @@ cmdattrib : ID {
             SC
             {
               let cmd = new CommandAtribuicao(this._exprID, this._exprContent);
-              this.curThread.push(cmd);
+              this.stack[this.stack.length-1].push(cmd);
+              // this.stack.peek().add(cmd);
             }
           ;
 
-cmdselecao : 'se' AP ID OPREL (ID | NUMBER) FP
-             ACH (cmd)+ FCH
-             ('senao' ACH (cmd)+ FCH)?
+cmdselecao : 'se' AP
+                  ID { this._exprDecision = this._input.LT(-1).text; }
+                  OPREL { this._exprDecision += this._input.LT(-1).text; }
+                  (ID | NUMBER) { this._exprDecision += this._input.LT(-1).text; }
+                  FP
+                  ACH
+                  { let curThread = new Array();
+                    this.stack.push(curThread);
+                  }
+                  (cmd)+
+                  FCH
+                  {
+                    this.listaTrue = this.stack.pop();
+                  }
+                  ('senao' ACH
+                           { let curThread = new Array();
+                             this.stack.push(curThread);
+                           }
+                           (cmd)+
+                           {
+                             this.listaFalse = this.stack.pop();
+                             let cmd = new CommandDecisao(this._exprDecision, this.listaTrue, this.listaFalse);
+                             this.stack[this.stack.length-1].push(cmd);
+                           }
+                           FCH
+                  )?
            ;
 
 expr : termo (

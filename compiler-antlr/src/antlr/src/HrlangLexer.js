@@ -12,6 +12,7 @@ import { AbstractCommand } from "../../ast/abstractCommand.js";
 import { CommandLeitura } from "../../ast/commandLeitura.js";
 import { CommandEscrita } from "../../ast/commandEscrita.js";
 import { CommandAtribuicao } from "../../ast/commandAtribuicao.js";
+import { CommandDecisao } from "../../ast/commandDecisao.js";
 
 
 
@@ -143,6 +144,11 @@ export default class HrlangLexer extends antlr4.Lexer {
         this._exprID = new String();
         this.stack = new Array();
         // this.stack = new Stack<ArrayList<AbstractCommand>>();
+        this._exprDecision = new String();
+        this.listaTrue = new Array();
+        this.listaFalse = new Array();
+        // this.listaTrue = new ArrayList<AbstractCommand>();
+        // this.listaFalse = new ArrayList<AbstractCommand>();
 
         this.verificaID = function(id){
             if(!this.symbolTable.exists(id)){
