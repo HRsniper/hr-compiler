@@ -136,12 +136,13 @@ export default class HrlangLexer extends antlr4.Lexer {
         this.symbol = new Symbol();
         this.program = new Program();
         this.curThread = new Array();
-        // this.curThread = new Array<AbstractCommand>();
+        // this.curThread = new ArrayList<AbstractCommand>();
         this._readID = new String();
         this._writeID = new String();
         // this.cmd;
         this._exprID = new String();
-        this._exprContent = new String();
+        this.stack = new Array();
+        // this.stack = new Stack<ArrayList<AbstractCommand>>();
 
         this.verificaID = function(id){
             if(!this.symbolTable.exists(id)){

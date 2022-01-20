@@ -20,12 +20,13 @@ this.symbolTable = new SymbolTable();
 this.symbol = new Symbol();
 this.program = new Program();
 this.curThread = new Array();
-// this.curThread = new Array<AbstractCommand>();
+// this.curThread = new ArrayList<AbstractCommand>();
 this._readID = new String();
 this._writeID = new String();
 // this.cmd;
 this._exprID = new String();
-this._exprContent = new String();
+this.stack = new Array();
+// this.stack = new Stack<ArrayList<AbstractCommand>>();
 
 this.verificaID = function(id){
     if(!this.symbolTable.exists(id)){
@@ -43,7 +44,7 @@ this.exibeComandos = function(){
 // parser
 prog : 'programa' decl bloco  'fimprog;'
        {
-         this.program.setComandos(this.curThread);
+         this.program.setComandos(this.stack.pop());
        }
      ;
 
@@ -78,7 +79,10 @@ tipo : 'numero' { this._tipo = Variable.NUMBER; }
      | 'texto' { this._tipo = Variable.TEXT; }
      ;
 
-bloco : (cmd)+
+bloco : { this.curThread = new Array();
+          this.stack.push(this.curThread);
+        }
+        (cmd)+
       ;
 
 cmd : cmdleitura
@@ -95,7 +99,8 @@ cmdleitura : 'leia' AP
                     SC
                     {
                       let cmd = new CommandLeitura(this._readID);
-                      this.curThread.push(cmd);
+                      this.stack[this.stack.length-1].push(cmd);
+                      // this.stack.peek().add(cmd);
                     }
            ;
 
@@ -107,7 +112,8 @@ cmdescrita : 'escreva' AP
                       SC
                       {
                         let cmd = new CommandEscrita(this._writeID);
-                        this.curThread.push(cmd);
+                      this.stack[this.stack.length-1].push(cmd);
+                      // this.stack.peek().add(cmd);
                       }
            ;
 
