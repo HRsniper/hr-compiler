@@ -11,6 +11,7 @@ import { Program } from "../../ast/program.js";
 import { AbstractCommand } from "../../ast/abstractCommand.js";
 import { CommandLeitura } from "../../ast/commandLeitura.js";
 import { CommandEscrita } from "../../ast/commandEscrita.js";
+import { CommandAtribuicao } from "../../ast/commandAtribuicao.js";
 
 
 
@@ -139,6 +140,8 @@ export default class HrlangLexer extends antlr4.Lexer {
         this._readID = new String();
         this._writeID = new String();
         // this.cmd;
+        this._exprID = new String();
+        this._exprContent = new String();
 
         this.verificaID = function(id){
             if(!this.symbolTable.exists(id)){

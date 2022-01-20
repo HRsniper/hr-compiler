@@ -9,6 +9,7 @@ import { Program } from "../../ast/program.js";
 import { AbstractCommand } from "../../ast/abstractCommand.js";
 import { CommandLeitura } from "../../ast/commandLeitura.js";
 import { CommandEscrita } from "../../ast/commandEscrita.js";
+import { CommandAtribuicao } from "../../ast/commandAtribuicao.js";
 }
 
 @members{
@@ -23,6 +24,8 @@ this.curThread = new Array();
 this._readID = new String();
 this._writeID = new String();
 // this.cmd;
+this._exprID = new String();
+this._exprContent = new String();
 
 this.verificaID = function(id){
     if(!this.symbolTable.exists(id)){
@@ -89,11 +92,11 @@ cmdleitura : 'leia' AP
                          this._readID = this._input.LT(-1).text;
                        }
                     FP
-                      {
-                        let cmd = new CommandLeitura(this._readID);
-                        this.curThread.push(cmd);
-                      }
                     SC
+                    {
+                      let cmd = new CommandLeitura(this._readID);
+                      this.curThread.push(cmd);
+                    }
            ;
 
 cmdescrita : 'escreva' AP
@@ -101,17 +104,24 @@ cmdescrita : 'escreva' AP
                            this._writeID = this._input.LT(-1).text;
                          }
                       FP
-                        {
-                          let cmd = new CommandEscrita(this._writeID);
-                          this.curThread.push(cmd);
-                        }
                       SC
+                      {
+                        let cmd = new CommandEscrita(this._writeID);
+                        this.curThread.push(cmd);
+                      }
            ;
 
-cmdattrib : ID { this.verificaID(this._input.LT(-1).text); }
-            ATTR
+cmdattrib : ID {
+                 this.verificaID(this._input.LT(-1).text);
+                 this._exprID = this._input.LT(-1).text;
+               }
+            ATTR { this._exprContent = ""; }
             expr
             SC
+            {
+              let cmd = new CommandAtribuicao(this._exprID, this._exprContent);
+              this.curThread.push(cmd);
+            }
           ;
 
 cmdselecao : 'se' AP ID OPREL (ID | NUMBER) FP
@@ -119,10 +129,17 @@ cmdselecao : 'se' AP ID OPREL (ID | NUMBER) FP
              ('senao' ACH (cmd)+ FCH)?
            ;
 
-expr : termo (OP termo)*
+expr : termo (
+               OP { this._exprContent += this._input.LT(-1).text; }
+               termo
+             )*
      ;
 
-termo : ID { this.verificaID(this._input.LT(-1).text); } | NUMBER
+termo : ID {
+             this.verificaID(this._input.LT(-1).text);
+             this._exprContent += this._input.LT(-1).text;
+           }
+      | NUMBER { this._exprContent += this._input.LT(-1).text; }
       ;
 
 // lexer
