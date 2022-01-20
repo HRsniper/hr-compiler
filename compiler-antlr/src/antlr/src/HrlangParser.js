@@ -421,7 +421,8 @@ export default class HrlangParser extends antlr4.Parser {
 	        this.state = 71;
 	        this.match(HrlangParser.SC);
 
-	                              let cmd = new CommandLeitura(this._readID);
+	                              let vari = new Variable(this.symbolTable.get(this._readID), this._tipo, this.varValue);
+	                              let cmd = new CommandLeitura(this._readID, vari);
 	                              this.stack[this.stack.length-1].push(cmd);
 	                              // this.stack.peek().add(cmd);
 	                            

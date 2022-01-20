@@ -15,6 +15,6 @@ export class CommandAtribuicao extends AbstractCommand {
   }
 
   public generateJavascriptCode(): string {
-    throw new Error("Method not implemented.");
+    return `${this.id} = ${this.expr};`;
   }
 }

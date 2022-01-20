@@ -13,6 +13,6 @@ export class CommandEscrita extends AbstractCommand {
   }
 
   public generateJavascriptCode(): string {
-    throw new Error("Method not implemented.");
+    return `console.log(${this.id});`;
   }
 }
