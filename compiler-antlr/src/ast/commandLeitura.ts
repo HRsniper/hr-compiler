@@ -16,8 +16,6 @@ export class CommandLeitura extends AbstractCommand {
   }
 
   public generateJavascriptCode(): string {
-    return `${this.id} = _key.${
-      this.var.getType() == Variable.NUMBER ? "valueOf()" : "valueOf()"
-    };\n`;
+    return `console.log('${this.id}: Lido corretamente');`;
   }
 }

@@ -176,7 +176,7 @@ export default class HrlangParser extends antlr4.Parser {
 	        this.bloco();
 	        this.state = 27;
 	        this.match(HrlangParser.T__1);
-	         this.program.setComandos(this.symbolTable);
+	         this.program.setVarTable(this.symbolTable);
 	                 this.program.setComandos(this.stack.pop());
 	               
 	    } catch (re) {
@@ -331,8 +331,8 @@ export default class HrlangParser extends antlr4.Parser {
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	         let curThread = new Array();
-	                  this.stack.push(curThread);
+	         this.curThread = new Array();
+	                  this.stack.push(this.curThread);
 	                
 	        this.state = 56; 
 	        this._errHandler.sync(this);
@@ -554,8 +554,8 @@ export default class HrlangParser extends antlr4.Parser {
 	        this.match(HrlangParser.FP);
 	        this.state = 99;
 	        this.match(HrlangParser.ACH);
-	         let curThread = new Array();
-	                            this.stack.push(curThread);
+	         this.curThread = new Array();
+	                            this.stack.push(this.curThread);
 	                          
 	        this.state = 102; 
 	        this._errHandler.sync(this);
@@ -580,8 +580,8 @@ export default class HrlangParser extends antlr4.Parser {
 	            this.match(HrlangParser.T__7);
 	            this.state = 109;
 	            this.match(HrlangParser.ACH);
-	             let curThread = new Array();
-	                                         this.stack.push(curThread);
+	             this.curThread = new Array();
+	                                         this.stack.push(this.curThread);
 	                                       
 	            this.state = 112; 
 	            this._errHandler.sync(this);

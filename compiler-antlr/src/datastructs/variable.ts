@@ -35,9 +35,9 @@ export class Variable extends Symbol {
   public generateJavascriptCode(): string {
     let str: string;
     if (this.type == Variable.NUMBER) {
-      str = `let ${this.name}: number`;
+      str = `let ${this.name} = new Number();`;
     } else {
-      str = `let ${this.name}: string`;
+      str = `let ${this.name} = new String();`;
     }
     return str;
   }

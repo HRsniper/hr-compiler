@@ -23,10 +23,10 @@ export class Variable extends Symbol {
     generateJavascriptCode() {
         let str;
         if (this.type == Variable.NUMBER) {
-            str = `let ${this.name}: number`;
+            str = `let ${this.name} = new Number();`;
         }
         else {
-            str = `let ${this.name}: string`;
+            str = `let ${this.name} = new String();`;
         }
         return str;
     }

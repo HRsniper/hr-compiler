@@ -8,6 +8,6 @@ export class CommandEscrita extends AbstractCommand {
         return `CommandEscrita: [id=${this.id}]`;
     }
     generateJavascriptCode() {
-        return `console.log(${this.id});`;
+        return `console.log('${this.id}', ${this.id});`;
     }
 }

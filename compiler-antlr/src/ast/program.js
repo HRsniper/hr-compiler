@@ -21,28 +21,21 @@ export class Program {
     }
     generateTarget() {
         let str = "";
-        str += "import readline from 'readline';\n";
-        str += "import util from 'util';\n";
         str += "export class Builder {\n";
         str += "constructor() {}\n";
-        str += "public main(): void {\n";
-        str +=
-            "const rl = readline.createInterface({ input: process.stdin, output: process.stdout });\n";
-        str += "const Scanner = util.promisify(rl.question).bind(rl);\n";
-        str += "const _key = await Scanner('KEY: ');\n";
+        str += "main() {\n";
         for (const symbol of this.varTable.getAll()) {
             str += symbol.generateJavascriptCode() + "\n";
         }
         for (const command of this.comandos) {
             str += command.generateJavascriptCode() + "\n";
         }
-        str += "rl.close();\n";
         str += "}\n";
         str += "}\n";
+        str += "const builder = new Builder();\n";
+        str += "builder.main();\n";
         try {
-            fs.writeFileSync(`${process.cwd()}/src/mainTS.ts`, str, 
-            // str.toString(),
-            "utf-8");
+            fs.writeFileSync(`${process.cwd()}/src/mainGEN.js`, str.toString(), "utf-8");
         }
         catch (error) {
             console.log(error);

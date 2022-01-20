@@ -13,6 +13,6 @@ export class CommandEscrita extends AbstractCommand {
   }
 
   public generateJavascriptCode(): string {
-    return `console.log(${this.id});`;
+    return `console.log('${this.id}', ${this.id});`;
   }
 }

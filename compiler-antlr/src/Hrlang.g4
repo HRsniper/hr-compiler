@@ -53,7 +53,7 @@ this.generateCode = function(){
 
 // parser
 prog : 'programa' decl bloco  'fimprog;'
-       { this.program.setComandos(this.symbolTable);
+       { this.program.setVarTable(this.symbolTable);
          this.program.setComandos(this.stack.pop());
        }
      ;
@@ -89,8 +89,8 @@ tipo : 'numero' { this._tipo = Variable.NUMBER; }
      | 'texto' { this._tipo = Variable.TEXT; }
      ;
 
-bloco : { let curThread = new Array();
-          this.stack.push(curThread);
+bloco : { this.curThread = new Array();
+          this.stack.push(this.curThread);
         }
         (cmd)+
       ;
@@ -148,8 +148,8 @@ cmdselecao : 'se' AP
                   (ID | NUMBER) { this._exprDecision += this._input.LT(-1).text; }
                   FP
                   ACH
-                  { let curThread = new Array();
-                    this.stack.push(curThread);
+                  { this.curThread = new Array();
+                    this.stack.push(this.curThread);
                   }
                   (cmd)+
                   FCH
@@ -157,8 +157,8 @@ cmdselecao : 'se' AP
                     this.listaTrue = this.stack.pop();
                   }
                   ('senao' ACH
-                           { let curThread = new Array();
-                             this.stack.push(curThread);
+                           { this.curThread = new Array();
+                             this.stack.push(this.curThread);
                            }
                            (cmd)+
                            {
