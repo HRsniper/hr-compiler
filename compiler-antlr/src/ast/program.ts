@@ -50,7 +50,7 @@ export class Program {
 
     try {
       fs.writeFileSync(
-        `${process.cwd()}/src/mainGEN.js`,
+        `${process.cwd()}/mainGEN.js`,
         str.toString(),
         "utf-8"
       );

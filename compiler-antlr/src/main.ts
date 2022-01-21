@@ -8,14 +8,22 @@ import { SemanticException } from "./exception/exception.js";
 class Main {
   constructor() {}
 
+  filePath(file: string): string {
+    const path = import.meta.url;
+    const url = new URL(path);
+    const stringArray = url.pathname.split("/");
+    stringArray.pop();
+    stringArray.push(file);
+    const newFilePath = stringArray.join("/");
+    console.log(newFilePath);
+    return newFilePath;
+  }
+
   public main(): void {
     try {
-      const input = fs.readFileSync(
-        path.join(`${path.resolve()}/src/main.hr`),
-        {
-          encoding: "utf-8"
-        }
-      );
+      const input = fs.readFileSync(this.filePath("main.hr"), {
+        encoding: "utf-8"
+      });
       const chars = new antlr4.InputStream(input);
       const lexer = new HrlangLexer(chars);
       const tokens = new antlr4.CommonTokenStream(lexer);
