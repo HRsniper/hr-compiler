@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  compiler:
+    container_name: compiler
+    build: .
+    volumes:
+      - .:/home/hrcompiler/src
